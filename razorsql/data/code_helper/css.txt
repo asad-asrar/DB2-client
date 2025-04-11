@@ -1,0 +1,365 @@
+~DISPLAY=background color image repeat attachment position
+~CURSORPOS=12
+~CATEGORY=1
+~TEXT=background: color image repeat attachment position;
+~~
+~DISPLAY=background-color hex
+~HIGHLIGHT=19,25
+~CATEGORY=1
+~TEXT=background-color: #FFFFFF;
+~~
+~DISPLAY=background-color name
+~HIGHLIGHT=18,23
+~CATEGORY=1
+~TEXT=background-color: white;
+~~
+~DISPLAY=background-color rgb
+~HIGHLIGHT=22,33
+~CATEGORY=1
+~TEXT=background-color: rgb(255,255,255);
+~~
+~DISPLAY=background-color transparent
+~CURSORPOS=30
+~CATEGORY=1
+~TEXT=background-color: transparent;
+~~
+~DISPLAY=background-image url
+~CURSORPOS=22
+~CATEGORY=1
+~TEXT=background-image: url();
+~~
+~DISPLAY=background-image none
+~CURSORPOS=23
+~CATEGORY=1
+~TEXT=background-image: none;
+~~
+~DISPLAY=background-attachment
+~HIGHLIGHT=23,35
+~CATEGORY=1
+~TEXT=background-attachment: scroll/fixed;
+~~
+~DISPLAY=background-repeat
+~HIGHLIGHT=19,53
+~CATEGORY=1
+~TEXT=background-repeat: repeat/repeat-x/repeat-y/no-repeat;
+~~
+~DISPLAY=background-position
+~CURSORPOS=20
+~CATEGORY=1
+~TEXT=background-position:
+~~
+~DISPLAY=border size style color
+~CURSORPOS=8
+~CATEGORY=2
+~TEXT=border: size style color;
+~~
+~DISPLAY=border-top size style color
+~CURSORPOS=12
+~CATEGORY=2
+~TEXT=border-top: size style color;
+~~
+~DISPLAY=border-right size style color
+~CURSORPOS=14
+~CATEGORY=2
+~TEXT=border-right: size style color;
+~~
+~DISPLAY=border-bottom size style c...
+~CURSORPOS=15
+~CATEGORY=2
+~TEXT=border-bottom: size style color;
+~~
+~DISPLAY=border-left size style color
+~CURSORPOS=13
+~CATEGORY=2
+~TEXT=border-left: size style color;
+~~
+~DISPLAY=border-width size
+~HIGHLIGHT=14,15
+~CATEGORY=2
+~TEXT=border-width: 1px;
+~~
+~DISPLAY=border-top-width size
+~HIGHLIGHT=18,19
+~CATEGORY=2
+~TEXT=border-top-width: 1px;
+~~
+~DISPLAY=border-right-width size
+~HIGHLIGHT=20,21
+~CATEGORY=2
+~TEXT=border-right-width: 1px;
+~~
+~DISPLAY=border-bottom-width size
+~HIGHLIGHT=21,22
+~CATEGORY=2
+~TEXT=border-bottom-width: 1px;
+~~
+~DISPLAY=border-left-width size
+~HIGHLIGHT=19,20
+~CATEGORY=2
+~TEXT=border-left-width: 1px;
+~~
+~DISPLAY=border-style
+~HIGHLIGHT=14,19
+~CATEGORY=2
+~TEXT=border-style: style;
+~~
+~DISPLAY=border-top-style
+~HIGHLIGHT=18,23
+~CATEGORY=2
+~TEXT=border-top-style: style;
+~~
+~DISPLAY=border-right-style
+~HIGHLIGHT=20,25
+~CATEGORY=2
+~TEXT=border-right-style: style;
+~~
+~DISPLAY=border-bottom-style
+~HIGHLIGHT=21,26
+~CATEGORY=2
+~TEXT=border-bottom-style: style;
+~~
+~DISPLAY=border-left-style
+~HIGHLIGHT=19,24
+~CATEGORY=2
+~TEXT=border-left-style: style;
+~~
+~DISPLAY=border-color
+~HIGHLIGHT=14,19
+~CATEGORY=2
+~TEXT=border-color: color;
+~~
+~DISPLAY=border-top-color
+~HIGHLIGHT=18,23
+~CATEGORY=2
+~TEXT=border-top-color: color;
+~~
+~DISPLAY=border-right-color
+~HIGHLIGHT=20,25
+~CATEGORY=2
+~TEXT=border-right-color: color;
+~~
+~DISPLAY=border-bottom-color
+~HIGHLIGHT=21,26
+~CATEGORY=2
+~TEXT=border-bottom-color: color;
+~~
+~DISPLAY=border-left-color
+~HIGHLIGHT=19,24
+~CATEGORY=2
+~TEXT=border-left-color: color;
+~~
+~DISPLAY=display
+~HIGHLIGHT=9,58
+~CATEGORY=3
+~TEXT=display: none/inline/block/list-item/run-in/compact/marker;
+~~
+~DISPLAY=float
+~HIGHLIGHT=7,22
+~CATEGORY=3
+~TEXT=float: left/right/none;
+~~
+~DISPLAY=clear
+~HIGHLIGHT=7,27
+~CATEGORY=3
+~TEXT=clear: left/right/both/none;
+~~
+~DISPLAY=visibility
+~HIGHLIGHT=12,35
+~CATEGORY=3
+~TEXT=visibility: visible/hidden/collapse;
+~~
+~DISPLAY=cursor
+~HIGHLIGHT=8,62
+~CATEGORY=3
+~TEXT=cursor: auto/crosshair/default/pointer/move/e-resize/ne-resize;
+~~
+~DISPLAY=height
+~HIGHLIGHT=8,9
+~CATEGORY=4
+~TEXT=height: 1px;
+~~
+~DISPLAY=width
+~HIGHLIGHT=7,8
+~CATEGORY=4
+~TEXT=width: 1px;
+~~
+~DISPLAY=font-size
+~HIGHLIGHT=11,13
+~CATEGORY=5
+~TEXT=font-size: 11px;
+~~
+~DISPLAY=line-height
+~HIGHLIGHT=13,14
+~CATEGORY=5
+~TEXT=line-height: 1px;
+~~
+~DISPLAY=font-style
+~HIGHLIGHT=12,33
+~CATEGORY=5
+~TEXT=font-style: normal/italic/oblique;
+~~
+~DISPLAY=font-variant
+~HIGHLIGHT=14,31
+~CATEGORY=5
+~TEXT=font-variant: normal/small-caps;
+~~
+~DISPLAY=font-weight
+~HIGHLIGHT=13,75
+~CATEGORY=5
+~TEXT=font-weight: normal/bold/bolder/lighter/100/200/300/400/500/600/700/800/900;
+~~
+~DISPLAY=font-family
+~CURSORPOS=13
+~CATEGORY=5
+~TEXT=font-family: 
+~~
+~DISPLAY=list-style-type
+~HIGHLIGHT=17,64
+~CATEGORY=6
+~TEXT=list-style-type: disc/circle/square/decimal/decimal-leading-zero;
+~~
+~DISPLAY=list-style-position
+~HIGHLIGHT=21,35
+~CATEGORY=6
+~TEXT=list-style-position: inside/outside;
+~~
+~DISPLAY=list-style-image
+~CURSORPOS=22
+~CATEGORY=6
+~TEXT=list-style-image: url();
+~~
+~DISPLAY=margin global
+~HIGHLIGHT=8,9
+~CATEGORY=7
+~TEXT=margin: 1px;
+~~
+~DISPLAY=margin top
+~HIGHLIGHT=12,13
+~CATEGORY=7
+~TEXT=margin-top: 1px;
+~~
+~DISPLAY=margin right
+~HIGHLIGHT=14,15
+~CATEGORY=7
+~TEXT=margin-right: 1px;
+~~
+~DISPLAY=margin bottom
+~HIGHLIGHT=15,16
+~CATEGORY=7
+~TEXT=margin-bottom: 1px;
+~~
+~DISPLAY=margin left
+~HIGHLIGHT=13,14
+~CATEGORY=7
+~TEXT=margin-left: 1px;
+~~
+~DISPLAY=padding global
+~HIGHLIGHT=9,10
+~CATEGORY=8
+~TEXT=padding: 1px;
+~~
+~DISPLAY=padding top
+~HIGHLIGHT=13,14
+~CATEGORY=8
+~TEXT=padding-top: 1px;
+~~
+~DISPLAY=padding right
+~HIGHLIGHT=15,16
+~CATEGORY=8
+~TEXT=padding-right: 1px;
+~~
+~DISPLAY=padding bottom
+~HIGHLIGHT=16,17
+~CATEGORY=8
+~TEXT=padding-bottom: 1px;
+~~
+~DISPLAY=padding left
+~HIGHLIGHT=14,15
+~CATEGORY=8
+~TEXT=padding-left: 1px;
+~~
+~DISPLAY=position
+~HIGHLIGHT=10,40
+~CATEGORY=9
+~TEXT=position: static/relative/absolute/fixed;
+~~
+~DISPLAY=top
+~HIGHLIGHT=5,6
+~CATEGORY=9
+~TEXT=top: 1px;
+~~
+~DISPLAY=right
+~HIGHLIGHT=7,8
+~CATEGORY=9
+~TEXT=right: 1px;
+~~
+~DISPLAY=bottom
+~HIGHLIGHT=8,9
+~CATEGORY=9
+~TEXT=bottom: 1px;
+~~
+~DISPLAY=left
+~HIGHLIGHT=6,7
+~CATEGORY=9
+~TEXT=left: 1px;
+~~
+~DISPLAY=overflow
+~HIGHLIGHT=10,36
+~CATEGORY=9
+~TEXT=overflow: visible/hidden/scroll/auto;
+~~
+~DISPLAY=vertical-align
+~HIGHLIGHT=16,17
+~CATEGORY=9
+~TEXT=vertical-align: 1px;
+~~
+~DISPLAY=z-index
+~HIGHLIGHT=9,10
+~CATEGORY=9
+~TEXT=z-index: 1;
+~~
+~DISPLAY=color
+~HIGHLIGHT=7,12
+~CATEGORY=10
+~TEXT=color: black;
+~~
+~DISPLAY=direction
+~HIGHLIGHT=11,18
+~CATEGORY=10
+~TEXT=direction: ltr/rtl;
+~~
+~DISPLAY=letter-spacing
+~HIGHLIGHT=16,17
+~CATEGORY=10
+~TEXT=letter-spacing: 1px;
+~~
+~DISPLAY=text-align
+~HIGHLIGHT=12,37
+~CATEGORY=10
+~TEXT=text-align: left/right/center/justify;
+~~
+~DISPLAY=text-decoration
+~HIGHLIGHT=17,53
+~CATEGORY=10
+~TEXT=text-decoration: none/underline/overline/line-through;
+~~
+~DISPLAY=text-indent
+~HIGHLIGHT=12,13
+~CATEGORY=10
+~TEXT=text-indent: 1px;
+~~
+~DISPLAY=text-transform
+~HIGHLIGHT=16,51
+~CATEGORY=10
+~TEXT=text-transform: none/capitalize/uppercase/lowercase;
+~~
+~DISPLAY=white-space
+~HIGHLIGHT=13,30
+~CATEGORY=10
+~TEXT=white-space: normal/pre/nowrap;
+~~
+~DISPLAY=word-spacing
+~HIGHLIGHT=14,15
+~CATEGORY=10
+~TEXT=word-spacing: 1px;
+~~

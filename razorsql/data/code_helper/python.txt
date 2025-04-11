@@ -1,0 +1,50 @@
+~DISPLAY=if statement
+~HIGHLIGHT=3,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if condition:
+~TEXT=	#code
+~~
+~DISPLAY=if else statement
+~HIGHLIGHT=3,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if condition:
+~TEXT=	#code
+~TEXT=else:
+~TEXT=	#code
+~~
+~DISPLAY=if elif else statement
+~HIGHLIGHT=3,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if condition:
+~TEXT=	#code
+~TEXT=elif condition:
+~TEXT=	#code
+~TEXT=else:
+~TEXT=	#code
+~~
+~DISPLAY=for statement
+~HIGHLIGHT=4,5
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=for x in y:
+~TEXT=	#code
+~~
+~DISPLAY=function
+~HIGHLIGHT=4,17
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=def function_name(args):
+~TEXT=	#code
+~~
+~DISPLAY=try except
+~HIGHLIGHT=6,11
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=try:
+~TEXT=	#code
+~TEXT=except (exception_handler):
+~TEXT=	#code
+~~

@@ -1,0 +1,32 @@
+~DISPLAY=for loop
+~HIGHLIGHT=10,16
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=for (i in values) {
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=if statement
+~HIGHLIGHT=4,13
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=if (condition) {
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=else statement
+~HIGHLIGHT=8,14
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=else {
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=while loop
+~HIGHLIGHT=7,16
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=while (condition) {
+~TEXT=	//code
+~TEXT=}
+~~

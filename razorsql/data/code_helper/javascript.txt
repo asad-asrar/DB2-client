@@ -1,0 +1,81 @@
+~DISPLAY=alert
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~CURSORPOS=6
+~TEXT=alert();
+~~
+~DISPLAY=document.write
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~CURSORPOS=15
+~TEXT=document.write();
+~~
+~DISPLAY=for loop
+~HIGHLIGHT=20,26
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=for (var i = 0; i < length; i++)
+~TEXT={
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=function
+~HIGHLIGHT=10,18
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=function (/*args*/)
+~TEXT={
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=if statement
+~HIGHLIGHT=4,17
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if (/*condition*/)
+~TEXT={
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=if else statement
+~HIGHLIGHT=4,17
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if (/*condition*/)
+~TEXT={
+~TEXT=	//code
+~TEXT=}
+~TEXT=else
+~TEXT={
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=else statement
+~HIGHLIGHT=8,14
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=else
+~TEXT={
+~TEXT=	//code
+~TEXT=}
+~~
+~DISPLAY=script
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~HIGHLIGHT=32,38
+~TEXT=<script type="text/javascript">
+~TEXT=//code
+~TEXT=</script>
+~~
+~DISPLAY=switch
+~HIGHLIGHT=8,18
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=switch (test_value) {
+~TEXT=	case val:
+~TEXT=		//code
+~TEXT=		break;
+~TEXT=	default:
+~TEXT=		//code
+~TEXT=}
+~~

@@ -1,0 +1,58 @@
+~DISPLAY=do while loop
+~HIGHLIGHT=9,18
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=Do While condition
+~TEXT=	
+~TEXT=Loop
+~~
+~DISPLAY=do until loop
+~HIGHLIGHT=9,18
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=Do Until condition
+~TEXT=	
+~TEXT=Loop
+~~
+~DISPLAY=for loop
+~HIGHLIGHT=4,13
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=For condition
+~TEXT=	
+~TEXT=Next
+~~
+~DISPLAY=for each loop
+~HIGHLIGHT=9,18
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=For Each condition
+~TEXT=	
+~TEXT=Next
+~~
+~DISPLAY=if statement
+~HIGHLIGHT=3,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=If condition Then
+~TEXT=	
+~TEXT=End If
+~~
+~DISPLAY=if else statement
+~HIGHLIGHT=3,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=If condition Then
+~TEXT=	
+~TEXT=Else
+~TEXT=	
+~TEXT=End If
+~~
+~DISPLAY=while loop
+~HIGHLIGHT=6,15
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=While condition
+~TEXT=	
+~TEXT=Wend
+~~

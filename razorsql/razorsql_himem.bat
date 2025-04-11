@@ -1,0 +1,1 @@
+jre11\bin\java -Xms256M -Xmx4096M -Dsun.java2d.uiScale.enabled=true -jar razorsql.jar

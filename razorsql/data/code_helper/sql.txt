@@ -1,0 +1,78 @@
+~DISPLAY=select
+~HIGHLIGHT=16,26
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=SELECT
+~TEXT=	*
+~TEXT=FROM
+~TEXT=	table_name
+~TEXT=WHERE
+~TEXT=	
+~~
+~DISPLAY=insert
+~HIGHLIGHT=13,23
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=INSERT INTO
+~TEXT=	table_name (columns)
+~TEXT=VALUES
+~TEXT=	(values)
+~~
+~DISPLAY=update
+~HIGHLIGHT=8,18
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=UPDATE
+~TEXT=	table_name
+~TEXT=SET
+~TEXT=	column_name = value
+~TEXT=WHERE
+~TEXT=	expression
+~~
+~DISPLAY=delete
+~HIGHLIGHT=13,23
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=DELETE FROM
+~TEXT=	table_name
+~TEXT=WHERE
+~TEXT=	expression
+~~
+~DISPLAY=create table
+~HIGHLIGHT=13,23
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=CREATE TABLE table_name (
+~TEXT=	column_name column_type (column_size) column_constraint,
+~TEXT=	
+~TEXT=)
+~~
+~DISPLAY=alter table add column
+~HIGHLIGHT=13,23
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=ALTER TABLE
+~TEXT=	table_name
+~TEXT=ADD
+~TEXT=	column_name data_type (size)
+~~
+~DISPLAY=alter table add foreign key
+~HIGHLIGHT=13,23
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=ALTER TABLE
+~TEXT=	table_name
+~TEXT=ADD FOREIGN KEY
+~TEXT=	(column_name)
+~TEXT=REFERENCES
+~TEXT=	table_name (column_name)
+~~
+~DISPLAY=alter table add primary key
+~HIGHLIGHT=13,23
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=ALTER TABLE
+~TEXT=	table_name
+~TEXT=ADD PRIMAY KEY
+~TEXT=	(column_name)
+~~
