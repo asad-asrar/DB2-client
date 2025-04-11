@@ -1,0 +1,34 @@
+~DISPLAY=for loop
+~HIGHLIGHT=4,13
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=for condition loop
+~TEXT=	
+~TEXT=end loop;
+~~
+~DISPLAY=if statement
+~HIGHLIGHT=3,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if condition then
+~TEXT=	
+~TEXT=end if;
+~~
+~DISPLAY=if else statement
+~HIGHLIGHT=3,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if condition then
+~TEXT=	
+~TEXT=else
+~TEXT=	
+~TEXT=end if;
+~~
+~DISPLAY=while loop
+~HIGHLIGHT=6,15
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=while condition loop
+~TEXT=	
+~TEXT=end loop;
+~~

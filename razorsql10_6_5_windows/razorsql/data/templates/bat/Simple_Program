@@ -1,0 +1,16 @@
+REM ECHO OFF prevents the printing of each command to standard output.
+@ECHO OFF
+REM ECHO. prints a blank line.
+ECHO.
+ECHO Hello World, press any key to start APROGRAM.EXE!
+PAUSE > NUL
+REM The first argument to the batch file can be referenced with "%1"
+APROGRAM.EXE %1
+IF ERRORLEVEL 1 GOTO error
+ECHO.
+ECHO APROGRAM has finished whatever it was doing.
+GOTO end
+:error
+ECHO.
+ECHO Something went wrong with AProgram.
+:end

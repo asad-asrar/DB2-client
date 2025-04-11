@@ -1,0 +1,5 @@
+function openWindow(url)
+{
+	var w = window.open (url, 
+		"win", "height=600,width=800,location,menubar,resizable,scrollbars,status,toolbar");
+}

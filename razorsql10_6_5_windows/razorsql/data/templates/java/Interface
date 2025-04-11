@@ -1,0 +1,13 @@
+package //insert package here
+
+/**
+ * @author
+ * @version
+ */
+ 
+//insert imports here
+ 
+public interface Untitled 
+{
+	
+}

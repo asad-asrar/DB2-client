@@ -1,0 +1,39 @@
+<html>
+<body style="font-size:12;font-family:Sans Serif">
+
+<table width="400">
+	<tr>
+		<td>
+		<br>
+		<b>RazorSQL JDBC Bridge Type</b>
+		<br><br>
+		There are two options when using the RazorSQL JDBC Bridge to access databases, Interface and Driver.
+		<br><br>
+		If using the Interface option, the RazorSQL JDBC Bridge will obtain a connection to the database by
+		calling the Interface Method of the Interface Class.  The Interface Class must be provided and be
+		accessible to the RazorSQL JDBC Bridge page.  
+		<br><br>
+		For example, the user would write a class called com.acme.ConnectionFactory that has a method called getConnection.
+		The user would then place this class on their application server so that the RazorSQL JDBC Bridge can
+		call it.  In the Connection Wizard, the user would tell RazorSQL to use the Interface method with an
+		Interface Class of com.acme.ConnectionFactory and Interface Method of getConnection.
+		<br><br>
+		If using the Driver option, the RazorSQL JDBC Bridge will obtain a connection to the database using the 
+		passed in driver settings for each SQL statement that needs to be executed.
+		<br><br>
+		For more information, see the RazorSQL JDBC Bridge User's Guide in the help documentation.
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+		
+		<br><br>
+		</td>
+	</tr>
+</table>
+
+
+
+</body>
+</html>

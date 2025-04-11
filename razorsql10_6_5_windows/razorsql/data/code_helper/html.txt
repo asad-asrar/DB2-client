@@ -1,0 +1,139 @@
+~DISPLAY=HTML 4.01 - Strict
+~CURSORPOS=90
+~CATEGORY=1
+~TEXT=<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+~~
+~DISPLAY=HTML 4.01 - Transistional
+~CURSORPOS=102
+~CATEGORY=1
+~TEXT=<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+~~
+~DISPLAY=XHTML 1.0 - Frameset
+~CURSORPOS=113
+~CATEGORY=1
+~TEXT=<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+~~
+~DISPLAY=XHTML 1.0 - Strict
+~CURSORPOS=109
+~CATEGORY=1
+~TEXT=<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+~~
+~DISPLAY=XHTML 1.0 - Transitional
+~CURSORPOS=121
+~CATEGORY=1
+~TEXT=<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+~~
+~DISPLAY=XHTML 1.1
+~CURSORPOS=97
+~CATEGORY=1
+~TEXT=<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+~~
+~DISPLAY=body
+~CURSORPOS=10
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<body id="" onload="">
+~TEXT=	
+~TEXT=</body>
+~~
+~DISPLAY=div
+~CURSORPOS=9
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<div id="">
+~TEXT=	
+~TEXT=</div>
+~~
+~DISPLAY=form
+~CURSORPOS=12
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<form name="" action="" method="GET">
+~TEXT=	<input type="submit" value="Submit">
+~TEXT=</form>
+~~
+~DISPLAY=head
+~HIGHLIGHT=84,94
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<head>
+~TEXT=	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+~TEXT=	<title>Page Title</title>
+~TEXT=	
+~TEXT=</head>
+~~
+~DISPLAY=hyperlink
+~CURSORPOS=9
+~CATEGORY=2
+~TEXT=<a href=""></a>
+~~
+~DISPLAY=img
+~CURSORPOS=10
+~CATEGORY=2
+~TEXT=<img src="" alt="">
+~~
+~DISPLAY=input
+~HIGHLIGHT=13,38
+~CATEGORY=2
+~TEXT=<input type="text/submit/hidden/button" name="" value="" id="">
+~~
+~DISPLAY=link
+~CURSORPOS=29
+~CATEGORY=2
+~TEXT=<link rel="stylesheet" href="" type="text/css">
+~~
+~DISPLAY=meta
+~CURSORPOS=12
+~CATEGORY=2
+~TEXT=<meta name="" content="">
+~~
+~DISPLAY=script
+~CURSORPOS=33
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<script type="text/javascript">
+~TEXT=	
+~TEXT=</script>
+~~
+~DISPLAY=script external source
+~CURSORPOS=13
+~CATEGORY=2
+~TEXT=<script src="" type="text/javascript"></script>
+~~
+~DISPLAY=style
+~CURSORPOS=25
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<style type="text/css">
+~TEXT=	
+~TEXT=</style>
+~~
+~DISPLAY=table
+~CURSORPOS=60
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<table border="0" cellspacing="0" cellpadding="0">
+~TEXT=	<tr><th></th></tr>
+~TEXT=	<tr><td></td></tr>
+~TEXT=</table>
+~~
+~DISPLAY=textarea
+~CURSORPOS=16
+~CATEGORY=2
+~TEXT=<textarea name="" rows="8" cols="40"></textarea>
+~~
+~DISPLAY=XMLHttpRequest
+~CURSORPOS=1
+~CATEGORY=2
+~SMART_INDENT=TRUE
+~TEXT=<script type="text/javascript">
+~TEXT=	if (window.XMLHttpRequest)	
+~TEXT=	{// code for IE7+, Firefox, Chrome, Opera, Safari
+~TEXT=		xmlhttp=new XMLHttpRequest();
+~TEXT=	}
+~TEXT=	else
+~TEXT=	{// code for IE6, IE5
+~TEXT=		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+~TEXT=	}
+~TEXT=</script>
+~~

@@ -1,0 +1,34 @@
+<html>
+<body style="font-size:12;font-family:Sans Serif">
+<table width="400">
+	<tr>
+		<td>
+		<br>
+		<b>Driver Location</b>
+		<br><br>
+		RazorSQL uses JDBC drivers to connect to the database.  RazorSQL needs to know the location of the JDBC 
+		drivers on the file system in order to use them to connect to the database.  The "Driver Location" field 
+		is used to tell RazorSQL where the drivers are stored on the file system.  
+		<br><br>Usually, database vendors 
+		or third party companies provide JDBC drivers in ".jar" files.  To set the "Driver Location". 
+		browse the file system
+		using the "Browse" button and select the jar file that contains the JDBC drivers.  If the vendor provides
+		the drivers as a zip file download, be sure to extract the files from the zip file to find the jar file.
+		<br><br>
+		If the JDBC driver is located in more than one jar file, separate the files with semicolons.  For example,
+		if using the Microsoft SQL Server driver provided by Microsoft, you may need to enter the following in the 
+		class location field:<br><br>
+		C:\drivers\mssqlserver.jar;C:\drivers\msbase.jar;C:\drivers\msutil.jar
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+		
+		<br><br>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

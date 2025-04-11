@@ -1,0 +1,41 @@
+~DISPLAY=class
+~HIGHLIGHT=6,15
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=class ClassName
+~~
+~DISPLAY=def
+~HIGHLIGHT=4,11
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=def defname
+~~
+~DISPLAY=if
+~HIGHLIGHT=4,13
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if (condition)
+~~
+~DISPLAY=main
+~CURSORPOS=29
+~CATEGORY=1
+~TEXT=def main(args: Array[String])
+~~
+~DISPLAY=object
+~HIGHLIGHT=7,17
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=object objectname
+~~
+~DISPLAY=val
+~HIGHLIGHT=4,11
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=val valname = new
+~~
+~DISPLAY=while
+~HIGHLIGHT=7,16
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=while (condition)
+~~

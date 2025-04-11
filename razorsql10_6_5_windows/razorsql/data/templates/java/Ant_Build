@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<project name="" default="run" basedir=".">
+	<property name="src" value="./src"/>
+	<property name="build" value="./build"/>
+	<property name="javac_debug" value="on"/>
+	<property name="javac_source" value="1.5"/>
+	<property name="javac_target" value="1.5"/>
+	
+	<path id="compile.classpath">
+		<pathelement location=""/>
+		<pathelement location=""/>
+	</path>
+
+	<target name="build" depends="init">
+		<javac srcdir="${src}" 
+			destdir="${build}"
+			debug="${javac_debug}"
+			target="${javac_target}"
+			source="${javac_source}">
+		<classpath refid="compile.classpath"/>
+	    </javac>
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="clean" description="Removes previous build">
+		<delete verbose="true">
+			<fileset dir="${build}"/>
+		</delete>
+	</target>
+	
+</project>
+

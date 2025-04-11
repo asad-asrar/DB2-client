@@ -1,0 +1,10 @@
+<?php
+function sendMail ($fromAddress, $toAddress, $subject, $message)
+{
+	$headers = 'From: ' .$fromAddress . "\r\n" .
+	'Reply-To: ' .$fromAddress . "\r\n" .
+	'X-Mailer: PHP/' . phpversion() . "\r\n" .
+  
+	mail($toAddress, $subject, $message, $headers);
+}
+?>

@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<meta name="description" content="Connect to a SQL Server database with remote access disabled via the RazorSQL SQL Server ASP Bridge.">
+	<meta name="keywords" content="sql server remote connect asp bridge razorsql">
+	<link href="../images/refresh.css" rel="stylesheet" type="text/css">
+	<title>RazorSQL SQL Server ASP Bridge</title>
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+		
+		
+		<!--header -->
+		<div id="header">			
+				
+			<h1 id="logo-text">Razor<span class="gray">SQL</span></h1>		
+			<h2 id="slogan">Query, Edit, Browse, and Manage Databases</h2>
+		
+		<!-- menu -->	
+		<div  id="header-tabs">
+			<ul>
+				<li  ><a href="http://www.razorsql.com/"><span>razorsql.com</span></a></li>
+				
+				
+				
+				
+				
+				<li  ><a href="http://www.razorsql.com/contact.php"><span>Contact</span></a></li>
+			</ul>
+		</div>			
+		
+		</div>		
+			
+		<!-- content-wrap starts here -->
+		<div id="content-wrap">
+				
+				
+				
+			<div id="main">
+			
+				<h1>Connecting to SQL Server with Remote Access Disabled using RazorSQL via ASP</h1>
+				
+				<p>
+				Many times, web hosting providers include SQL Server as part of their hosting packages,
+				but do not allow users to connect to the SQL Server database from a remote location.
+				This forces users to use a web based application to access their SQL Server database
+				instance, or resort to complex solutions such as SSH tunneling. 
+				</p>
+				
+				<p>
+				Also, in some cases, ISPs may block port 1433, the default port used by SQL Server,
+				because of a virus that used that port in an exploit.
+				</p>
+				
+				<p>
+				The RazorSQL 
+				SQL Server ASP Bridge
+				allows users to connect to a SQL Server database with the simple deployment of a ASP page, 
+				and allows them to get the added functionality of a desktop application like RazorSQL
+				as opposed to the limited functionality of web-based database access. And since the
+				bridge operates over standard HTTP or HTTPS ports, there are no firewall or ISP blocking
+				issues to worry about.
+				</p>
+				
+				<p>
+				The RazorSQL SQL Server ASP Bridge provides the ability for users to interact with
+				a SQL Server database without making a direct connection to the database.  Instead,
+				the user connects to the RazorSQL SQL Server ASP Bridge, which then connects to the database.
+				The RazorSQL SQL Server ASP Bridge is a ASP program that can be deployed on any web
+				server that supports ASP and has the necessary ADO libraries installed.
+				Since the ASP page resides on the hosting provider's web server, even if remote 
+				access is disabled on the SQL Server database, the ASP page will still be able to connect.
+				</p>
+				
+				<p>
+				As an added bonus, if your web server supports SSL, the RazorSQL SQL Server ASP Bridge can
+				be used to securely transmit your data from your desktop to your SQL Server database instance.
+				</p>
+				
+				<p>
+				<strong>Requirements</strong>
+				</p><p>
+				The RazorSQL SQL Server ASP Bridge requires a web server with ASP support and 
+				the ADO libraries for SQL Server must be installed and configured.
+				</p><p>
+				<strong>Deployment</strong>
+				</p>
+				<p>
+				All of the RazorSQL PHP and ASP bridges are located in the following zip file.  The SQL Server ASP bridge
+				is named razorsql_sqlserver_bridge.asp.
+				<br><br>
+				<strong><a href="http://www.razorsql.com/downloads/razorsql_bridges.zip"><span>RazorSQL Bridges</span></a></strong>
+				</p>
+				<p>
+				The RazorSQL SQL Server ASP Bridge file is also located here:
+				</p><p>
+				&lt;RazorSQL Install Directory&gt;/bridge/razorsql_sqlserver_bridge.asp
+				</p><p>
+				To deploy the bridge, simply upload this file to a ASP enabled web server.  This can be done using
+				either an FTP client or your web hosting provider's control panel.
+				</p><p>
+				Also included is a test page to check to see if SQL Server can be accessed via the web server.
+				The test page is located here:
+				</p><p>
+				&lt;RazorSQL Install Directory&gt;/bridge/test_sqlserver_setup.asp
+				</p><p>
+				To test the SQL Server setup, simply copy this file to a ASP enabled web server, access
+				the page, and follow the instructions.
+				</p><p>
+				<strong>Security</strong>
+				</p><p>
+				The RazorSQL SQL Server ASP Bridge can work via either HTTP or HTTPS.  If retrieving sensitive data,
+				it is recommended that HTTPS be used.
+				</p><p>
+				The RazorSQL SQL Server ASP Bridge provides the ability to supply a bridge password.  Only
+				calls to the brige that include a correct password will be handled.  The bridge
+				ships with a default password of radmin.  It is recommended that this password be
+				changed.  To change the password, simply replace the radmin in the following line of
+				the bridge ASP page with another password.
+				</p><p>
+				checkPassword = "radmin"
+				</p><p>
+				<strong>Accessing the Bridge</strong>
+				</p><p>
+				Once the bridge ASP page is deployed to a web server, the bridge can
+				be called via either HTTP or HTTPS if your web server supports SSL.
+				</p><p>  
+				To set up a connection profile
+				that communicates via the SQL Server ASP bridge, simply access the Connections -> Add Connection
+				Profile menu option, select SQL Server as the database type and RazorSQL SQL Server ASP Bridge
+				as the connection type.  There are then fields displayed such as Bridge URL, Bridge Password,
+				etc.  Listed below is information on these fields.
+				<br><br>
+				<strong>Bridge URL: </strong>
+				Enter the web address of the deployed bridge page in this field.  For example, 
+					http://www.myhost.com/razorsql_sqlserver_bridge.asp
+				<br><br>
+				<strong>Bridge Password: </strong>
+				Enter the bridge password in this field.  The default is radmin.  Enter your own custom password
+				if you modified the bridge php page to change the default password.
+				<br><br>
+				<strong>Login: </strong> This is your SQL Server user id.
+				<br><br>
+				<strong>Password: </strong> This is your password to your SQL Server database.
+				<br><br>
+				<strong>Host or IP Address: </strong> This is the host or IP address of your SQL Server database.  This is
+				different depending on the web host.  For example, the host name could be localhost, or an actual server name.
+				<br><br>
+				<strong>Port: </strong> This is the port the SQL Server database is listening on.  The default is 1433, but
+				many times web hosts change the port to another value.
+				<br><br>
+				<strong>Database Name: </strong> The name of the SQL Server database you wish to connect to.
+				<br><br>
+				<strong>Basic Auth. / .htaccess Info.:</strong> For added security, some users protect the razorsql bridge page with 
+				some form of basic authentication protection such as using a .htaccess file to require a user name and password before
+				the web server will allow access to the bridge page.  If the bridge page is protected in this manner, click the button
+				next to this field and add the appropriate user name and password to access the bridge page.
+				
+				</p><p>
+				Since the bridge does not hold on to connections, but instead opens and closes connections
+				for each call, the bridge cannot do multiple fetches to the database for the same query.
+				Because of this, there is a field call "max rows to return" located in the add connection
+				profile screen when setting up the bridge.  The value of this field tells the bridge
+				the maximum number of rows to fetch per query.  If set too high, this could cause performance
+				problems.
+				</p><p>
+				<strong>Limitations</strong>
+				</p><p>
+				There are certain features of RazorSQL that are not available when using the RazorSQL SQL Server ASP Bridge.
+				The Execute Procedure/Function tool is not available.  Also, all connections via the bridge are
+				set to auto commit since connections are not held onto by the bridge.
+				</p>
+			</div>
+			
+						<div id="sidebar">
+					
+				<div class="h1-light"><a href="installation.html">Installation</a></div>
+				
+				<div class="h1-light"><a href="application_menus.html">Complete Feature Reference</a></div>
+				
+				<div class="h1-light"><a href="getting_started.html">Getting Started</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="how_to_connect.html">How to Get Connected</a></li>
+						<li><a href="how_to_query.html">How to Execute Queries</a></li>
+						<li><a href="how_to_create_table.html">How to Create Tables</a></li>
+						<li><a href="how_to_search_data.html">How to Search for Data</a></li>
+						<li><a href="how_to_search_objects.html">How to Search for Objects</a></li>
+						<li><a href="how_to_import.html">How to Import Data</a></li>
+						<li><a href="how_to_export.html">How to Export Data</a></li>
+						<li><a href="how_to_edit.html">How to Edit Data</a></li>
+						<li><a href="how_to_files.html">How to Work with Files</a></li>			
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="getting_connected.html">Getting Connected</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_specific_help.html">Database Specific Help</a></li>
+						<li><a href="jdbc_odbc.html">General Connection Help</a></li>
+						<li><a href="connection_wizard.html">Connection Wizard</a></li>
+						<li><a href="builtin_connection.html">Built-in Connection Support</a></li>
+						<li><a href="included_drivers.html">Included Drivers</a></li>
+						<li><a href="razorsql_mysql_bridge.html">RazorSQL MySQL PHP Bridge</a></li>
+						<li><a href="razorsql_postgresql_bridge.html">PostgreSQL PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_bridge.html">SQL Server PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_asp_bridge.html">SQL Server ASP Bridge</a></li>
+						<li><a href="razorsql_jdbc_bridge.html">JDBC Bridge</a></li>
+						<li><a href="sqlite_driver.html">RazorSQL SQLite Driver</a></li>
+						<li><a href="odbc_setup.html">ODBC Help</a></li>
+						<li><a href="database_specific.html">Manual Database Specific JDBC Help</a></li>
+						<li><a href="driver_download.html">Where to Find JDBC Drivers</a></li>
+						
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="table_tools.html">Table Tools</a></div>
+					<div class="left-box">
+					<ul>				
+						<li><a href="create_table.html">Create Table</a></li>
+						<li><a href="create_view.html">Create View</a></li>
+						<li><a href="create_index.html">Create Index</a></li>
+						<li><a href="create_sequence.html">Create Sequence</a></li>
+						<li><a href="edit_table.html">Edit Table</a></li>
+						<li><a href="describe_table.html">Describe Table</a></li>
+						<li><a href="alter_table.html">Alter Table</a></li>
+						<li><a href="alter_view.html">Alter View</a></li>
+						<li><a href="view_table.html">View Table</a></li>
+						<li><a href="column_lookup.html">Column Lookup</a></li>
+						<li><a href="table_lookup.html">Table Lookup</a></li>
+						<li><a href="query_builder.html">Query Builder</a></li>
+						<li><a href="drop_table.html">Drop Table</a></li>
+						<li><a href="drop_view.html">Drop View</a></li>
+						<li><a href="drop_index.html">Drop Index</a></li>
+						<li><a href="drop_sequence.html">Drop Sequence</a></li>
+					</ul>	
+					</div>
+				<div class="h1-light"><a href="procedure_tools.html">Stored Procedure / Function <br>
+				/ Trigger Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="view_procedure.html">View Procedure / Function / Trigger</a></li>
+						<li><a href="edit_procedure.html">Procedure Editor</a></li>
+						<li><a href="edit_function.html">Function Editor</a></li>
+						<li><a href="edit_trigger.html">Trigger Editor</a></li>
+						<li><a href="edit_package.html">Package Editor</a></li>
+						<li><a href="edit_package.html">Package Body Editor</a></li>
+						<li><a href="create_function.html">Create Function</a></li>
+						<li><a href="create_procedure.html">Create Procedure</a></li>
+						<li><a href="create_trigger.html">Create Trigger</a></li>
+						<li><a href="create_package.html">Create Package</a></li>
+						<li><a href="create_package_body.html">Create Package Body</a></li>
+						<li><a href="execute_procedure.html">Execute Procedure / Function</a></li>
+						<li><a href="drop_function.html">Drop Function</a></li>
+						<li><a href="drop_procedure.html">Drop Procedure</a></li>
+						<li><a href="drop_trigger.html">Drop Trigger</a></li>
+						<li><a href="oracle_drop_package.html">Drop Package</a></li>
+						<li><a href="oracle_drop_package_body.html">Drop Package Body</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="data_tools.html">Data Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="export.html">Export</a></li>
+						<li><a href="import.html">Import</a></li>
+						<li><a href="compare.html">Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="sql_tools.html">SQL Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="sql_execute.html">Execute</a></li>
+						<li><a href="sql_execute_fetch_all.html">Execute Fetch All</a></li>
+						<li><a href="sql_execute_all.html">Execute All</a></li>
+						<li><a href="sql_explain.html">Explain Plan</a></li>
+						<li><a href="sql_commit_rollback.html">Commit / Rollback</a></li>
+						<li><a href="sql_history.html">SQL History</a></li>
+						<li><a href="sql_formatter.html">SQL Formatter</a></li>
+						<li><a href="query_scheduler.html">Query Scheduler</a></li>
+						<li><a href="ddl_generator.html">Generate DDL</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="database_tools.html">Database Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_navigator.html">Database Navigator</a></li>
+						<li><a href="database_search.html">Database Search</a></li> 
+						<li><a href="database_object_search.html">Database Object Search</a></li> 
+						<li><a href="database_meta.html">Meta Data Viewer</a></li>
+						<li><a href="create_database.html">Create Database</a></li>
+						<li><a href="create_user.html">Create User</a></li>
+						<li><a href="drop_database.html">Drop Database</a></li>
+						<li><a href="drop_user.html">Drop User</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="command_line.html">Command Line Interface</a></div>
+				<div class="h1-light"><a href="builtin_database.html">Built-in Database</a></div>
+				<div class="h1-light"><a href="editor_tools.html">Editor Tools</a></div>
+					<div class="left-box">
+					<ul>
+					
+						<li><a href="sql_editor.html">SQL Editor</a></li>
+						<li><a href="sort_query_results.html">Sort Query Results</a></li>
+						<li><a href="filter_query_results.html">Filter Query Results</a></li>
+						<li><a href="search_query_results.html">Search Query Results</a></li>
+						<li><a href="query_navigator.html">Query Navigator</a></li>
+						<li><a href="auto_column_lookup.html">Auto Column Lookup</a></li>
+						<li><a href="auto_table_lookup.html">Auto Table Lookup</a></li>
+						<li><a href="parameterized_queries.html">Parameterized Queries</a></li>
+						<li><a href="function_lookup.html">Function Lookup</a></li>
+						<li><a href="keyahead.html">Key Ahead</a></li>
+						<li><a href="execute_shell.html">Execute Shell / Batch Scripts</a></li>
+						<li><a href="find_replace.html">Find / Replace</a></li>
+						<li><a href="find_replace_in_files.html">Find / Replace in Files</a></li>
+						<li><a href="replace_range.html">Replace Range</a></li>
+						<li><a href="match_bracket.html">Match Bracket</a></li>
+						<li><a href="match_tag.html">Match Tag</a></li>
+						<li><a href="file_compare.html">File Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="plugin_guide.html">Plugin Guide</a></div>
+				<div class="h1-light"><a href="preferences.html">Preferences</a></div>
+				<div class="h1-light"><a href="support_questions.html">Common Support Questions</a></div>
+			</div>		
+		<!-- content-wrap ends here -->	
+		</div>
+					
+				<!--footer starts here-->
+		<div id="footer">
+			
+		<span id="footer-left">
+			&copy; 2011 <strong><a href="http://www.richardsonsoftware.com/">Richardson Software, LLC</a></strong> | 
+			 
+			
+			<a href="http://www.razorsql.com/">Home</a>
+			
+   		</span>
+				
+		</div>	
+<!-- wrap ends here -->
+</div>
+<!--stats--></body>
+</html>

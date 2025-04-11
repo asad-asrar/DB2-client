@@ -1,0 +1,81 @@
+~DISPLAY=for loop
+~HIGHLIGHT=9,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=for (my $var = 0; $var < code; $var++) {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=foreach
+~HIGHLIGHT=8,13
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=foreach my $x (@array) {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=if statement
+~CURSORPOS=4
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if () {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=if else statement
+~CURSORPOS=4
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if () {
+~TEXT=	# code
+~TEXT=} else {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=if elsif else statement
+~CURSORPOS=4
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=if () {
+~TEXT=	# code
+~TEXT=} elsif () {
+~TEXT=	# code
+~TEXT=} else {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=unless
+~CURSORPOS=8
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=unless () {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=while loop
+~CURSORPOS=7
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=while () {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=function
+~HIGHLIGHT=4,17
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=sub function_name {
+~TEXT=	# code
+~TEXT=}
+~~
+~DISPLAY=try block
+~HIGHLIGHT=8,14
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=eval {
+~TEXT=	# code
+~TEXT=};
+~TEXT=if ($@) {
+~TEXT=	# handle error
+~TEXT=}
+~~

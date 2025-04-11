@@ -1,0 +1,13 @@
+// insert package declaration here.  Example: package com.acme.util;
+
+
+// insert imports here. Example: import java.util.*;
+
+
+public class //insert class name here. 
+{
+	public static void main (String[] args)
+	{
+		
+	}
+}	

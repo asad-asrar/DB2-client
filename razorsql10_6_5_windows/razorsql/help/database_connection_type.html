@@ -1,0 +1,51 @@
+<html>
+<body style="font-size:12;font-family:Sans Serif">
+
+<table>
+	<tr>
+		<td>
+		<b>Connection Type</b>
+		<br><br>
+		RazorSQL can communicate with databases in several ways: using JDBC (Java Database Connectivity)
+		drivers, using an ODBC datasource (Windows only), using the RazorSQL JDBC Bridge via HTTP/S
+		or using the RazorSQL MySQL Bridge via HTTP/S (MySQL only).
+		<br><br>
+		<b>JDBC:</b>
+		<br><br>
+		To connect to a database via JDBC, a driver file specific to a database
+		type must be present on a user's machine.
+		RazorSQL ships with JDBC drivers for several databases.  RazorSQL also allows users to 
+		obtain JDBC drivers manually and use those drivers to communicate with a database.
+		<br><br>
+		JDBC drivers can be obtained, usually free of charge, from the database vendor's
+		web site.  After obtaining the drivers, connections to the database can be configured
+		using the RazorSQL Connections -> Add Connection Profile menu option.  Consult the JDBC driver documentation from the 
+		database vendor for the correct JDBC URL syntax and other questions you may
+		have about specific connection settings.
+		<br><br>
+		<b>ODBC (Windows only):</b>
+		<br><br>
+		To connect to a database using ODBC, an ODBC data source needs to be configured 
+		on the user's machine.  This process differs based on operating system.
+		For Windows machines, data sources can be configured through the ODBC data source
+		administrative tool.
+		<br><br>
+		<b>RazorSQL JDBC Bridge:</b>
+		<br><br>
+		To connect to a database using the RazorSQL JDBC Bridge, the RazorSQL JDBC Bridge
+		JSP page must be deployed to a Java/JSP enabled application server.  The bridge then
+		connects to a database either via a JDBC driver or via a custom, user-defined Java class.
+		See the RazorSQL JDBC Bridge user's guide in the help documentation for more information.
+		<br><br>
+		<b>RazorSQL MySQL Bridge:</b>
+		<br><br>
+		To connect to a MySQL database using the RazorSQL MySQL Bridge, the RazorSQL MySQL Bridge
+		PHP page must be deployed to a PHP enabled web server.  The PHP installation must
+		also be configured to use the PHP MySQL libraries.  See the RazorSQL MySQL Bridge users's
+		guide in the help documentation for more information.
+		<br>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

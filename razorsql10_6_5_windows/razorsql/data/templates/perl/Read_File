@@ -1,0 +1,8 @@
+open (TESTFILE, "test.txt") || die "could not open the file.";
+
+while ($record = <TESTFILE>) 
+{
+	print $record;
+}
+
+close(TESTFILE);

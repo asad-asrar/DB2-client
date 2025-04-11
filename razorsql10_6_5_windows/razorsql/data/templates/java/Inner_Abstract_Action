@@ -1,0 +1,7 @@
+(new AbstractAction()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				
+			}
+		});

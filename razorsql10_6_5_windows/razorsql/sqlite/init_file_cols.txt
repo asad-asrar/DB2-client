@@ -1,0 +1,4 @@
+.mode csv
+.header ON
+.separator ~~~
+.nullvalue <NULL>

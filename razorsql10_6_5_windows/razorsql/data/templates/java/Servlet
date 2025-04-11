@@ -1,0 +1,22 @@
+//package <package_name>
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class JavaServlet extends HttpServlet 
+{
+	public void doGet(HttpServletRequest request,
+		HttpServletResponse response)
+		throws IOException, ServletException
+	{
+	
+	}
+
+	public void doPost(HttpServletRequest request,
+		HttpServletResponse response)
+		throws IOException, ServletException
+	{
+	
+    }
+}

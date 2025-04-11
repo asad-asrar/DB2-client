@@ -1,0 +1,55 @@
+<html>
+<body style="font-size:12;font-family:Sans Serif">
+
+<table width="400">
+	<tr>
+		<td>
+		<br>
+		<b>SSH Tunnel Configuration</b>
+		<br><br>
+		An SSH tunnel allows RazorSQL to connect to a remote database via the SSH protocol.  
+		<br><br>
+		The benefits of an SSH tunnel are that SSH can be used to encrypt all communications to and
+		from the server, and the server does not need to allow remote access to the database.  Connections
+		to the server will be done via the SSH port, and once connected to the server over SSH, communications
+		to the database server will be initiated from the server instead of the client desktop.
+		<br><br>
+		Not all hosting companies provide SSH tunneling.  Please check with your web host / database administrator
+		to determine if SSH access is available for your account.
+		<br><br>
+		Many hosting companies do not allow remote database connections.  One of the preferred methods of connecting
+		to remote databases in this case is to use SSH tunneling.
+		<br><br><br>
+		<strong>SSH Host: </strong>This is the host name of the SSH server.
+		<br><br>
+		<strong>SSH Port: </strong>This is the port for the SSH server.  This is usually 22.
+		<br><br>
+		<strong>SSH User: </strong>This is the name of the account used to logon to the SSH server.
+		<br><br>
+		<strong>SSH Password: </strong>This is the password of the account used to logon to the SSH server.
+		<br><br>
+		<strong>Local Port to Forward: </strong>When setting up an SSH tunnel, a local port is needed.  RazorSQL
+			will forward communications on the local port via the SSH tunnel.  Enter a port value that is not used by another
+			process, such as 5555.  When entering in the database host and port information on the main Add connection profile
+			screen after setting up an SSH tunnel, make sure to set the host as localhost and the port as the local port value
+			entered here.
+		<br><br>
+		<strong>Remote Database Host: </strong>This is the name of the database host to connect to.  If the database is on the same
+		host as the SSH server, this would typically be localhost.
+		<br><br>
+		<strong>Remote Database Port: </strong>This is the port that the remote database is listening on.
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+		
+		<br><br>
+		</td>
+	</tr>
+</table>
+
+
+
+</body>
+</html>

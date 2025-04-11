@@ -1,0 +1,221 @@
+package razorsql.plugins;
+	
+import javax.swing.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+
+public class PluginExample implements Plugin
+{
+	
+	public void load()
+	{
+		PluginManager pluginManager = PluginManagerFactory.getInstance();
+		
+		pluginManager.log("in load() in PluginExample ");
+		
+		//add a menu item to the Plugins menu
+		JMenuItem menuItem = new JMenuItem("Plugin Example");
+		pluginManager.addPluginMenuItem(menuItem);
+		
+		//add an ActionListener to perform operations when the
+		//menu item is selected
+		menuItem.addActionListener(new PluginExampleListener());
+	}
+	
+	public String getName()
+	{
+		return "Plugin Example";
+	}
+
+	public String getVersion()
+	{
+		return "1.0";
+	}
+	
+	public String getDescription()
+	{
+		return "Example of how to use RazorSQL plugins";
+	}
+	
+	private static class PluginExampleListener implements ActionListener
+	{
+	
+		public PluginExampleListener()
+		{}	
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			PluginManager pluginManager = 
+				PluginManagerFactory.getInstance();
+			pluginManager.log("in actionPerformed");
+			
+			int majorVersion = pluginManager.getMajorVersion();
+			int minorVersion = pluginManager.getMinorVersion();
+			String versionString = pluginManager.getVersionString();
+			boolean registered = pluginManager.isRegistered();
+			String editorContents = pluginManager.getEditorContents();
+			int columnCount = pluginManager.getColumnCount();
+			String[] columnNames = pluginManager.getColumnNames();
+			int displayedRowCount = 
+				pluginManager.getDisplayedRowCount();
+			String[] displayedRow0 = null;
+			if (displayedRowCount > 0)
+			{
+				displayedRow0 = pluginManager.getDisplayedRow(0);	
+			}
+			String[] nextUndisplayedRow = 
+				pluginManager.getNextUndisplayedRow();
+			List allRows = pluginManager.getAllRows();
+			
+			Connection con = pluginManager.getConnection();
+			
+			JPanel testPanel = new JPanel();
+			JTextArea textArea = new JTextArea(20,50);
+			JScrollPane scrollPane = new JScrollPane(textArea);
+			testPanel.add(scrollPane);
+			
+			textArea.append("Major Version: "+majorVersion);
+			textArea.append("\n");
+			textArea.append("Minor Version: "+minorVersion);
+			textArea.append("\n");
+			textArea.append("Version String: "+versionString);
+			textArea.append("\n");
+			textArea.append("Registered: "+registered);
+			textArea.append("\n");
+			textArea.append("Editor Contents: "+editorContents);
+			textArea.append("\n"); 
+			textArea.append("Column Count: "+columnCount);
+			textArea.append("\n");
+			if (con != null)
+			{
+				Statement stmt = null;
+				ResultSet rs = null;
+				try
+				{
+					DatabaseMetaData metaData = 
+						con.getMetaData();
+					String databaseProduct = 
+						metaData.getDatabaseProductName();
+					textArea.append(
+						"Database Product Name: " 
+						+databaseProduct);
+					textArea.append("\n");
+					stmt = con.createStatement();
+					String query = "select id from data";
+					pluginManager.logQuery(query);
+					rs = stmt.executeQuery(query);
+					if (rs.next())
+					{
+						textArea.append("Query Result 0: " +
+							rs.getString(1));
+						textArea.append("\n");	
+					}
+				}
+				catch (SQLException ex)
+				{
+					pluginManager.log(ex);	
+				}
+				finally
+				{
+					if (rs != null)
+					{
+						try
+						{
+							rs.close();
+						}
+						catch (Exception ex)
+						{}	
+					}
+					if (stmt != null)
+					{
+						try
+						{
+							stmt.close();	
+						}	
+						catch (Exception ex)
+						{}
+					}
+				}	
+			}
+			if (columnNames != null)
+			{
+				textArea.append("Column Names: ");
+				int len = columnNames.length;
+				int check = len-1;
+				for (int i = 0; i < len; i++)
+				{
+					textArea.append(columnNames[i]);	
+					if (i < check)
+					{
+						textArea.append(",");	
+					}
+				}	
+				textArea.append("\n");
+			}
+			textArea.append("Displayed Row Count: " +
+				displayedRowCount);
+			textArea.append("\n");
+			if (displayedRow0 != null)
+			{
+				textArea.append("Displayed Row 0: ");
+				int len = displayedRow0.length;
+				int check = len-1;
+				for (int i = 0; i < len; i++)
+				{
+					textArea.append(displayedRow0[i]);	
+					if (i < check)
+					{
+						textArea.append(",");	
+					}
+				}	
+				textArea.append("\n");
+			}
+			if (nextUndisplayedRow != null)
+			{
+				textArea.append("Displayed Row 0: ");
+				int len = nextUndisplayedRow.length;
+				int check = len-1;
+				for (int i = 0; i < len; i++)
+				{
+					textArea.append(nextUndisplayedRow[i]);	
+					if (i < check)
+					{
+						textArea.append(",");	
+					}
+				}	
+				textArea.append("\n");
+			}
+			if (allRows != null)
+			{
+				textArea.append("All Rows:");
+				Iterator iter = allRows.iterator();
+				while (iter.hasNext())
+				{
+					String[] arr = (String[])iter.next();
+					if (arr != null)
+					{
+						int len = arr.length;
+						int check = len-1;
+						for (int i = 0; i < len; i++)
+						{
+							textArea.append(arr[i]);	
+							if (i < check)
+							{
+								textArea.append(",");	
+							}
+						}
+					}	
+					textArea.append("\n");
+				}	
+				textArea.append("\n");
+			}
+			
+			JFrame testFrame = new JFrame("PluginExample");
+			testFrame.setSize(400,400);
+			testFrame.getContentPane().add(testPanel);
+			testFrame.pack();
+			testFrame.setVisible(true);
+		}
+	}
+}

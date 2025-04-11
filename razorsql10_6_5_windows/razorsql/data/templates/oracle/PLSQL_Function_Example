@@ -1,0 +1,7 @@
+CREATE OR REPLACE FUNCTION get_salary(e_ssn IN VARCHAR2)
+	RETURN NUMBER
+	AS sal NUMBER;
+BEGIN
+	SELECT salary into sal from employee where ssn = e_ssn;
+	RETURN (sal);
+END;

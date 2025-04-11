@@ -1,0 +1,17 @@
+//package <package_name>
+
+import java.awt.*;
+import java.applet.*;
+import javax.swing.*;
+
+public class SwingApplet extends JApplet {
+
+	public void init() {
+		getContentPane().setLayout (null);
+	}
+	
+	public void paint (Graphics g) {
+		super.paint(g);
+		g.drawString("Hello World", 40, 80);
+	}
+}

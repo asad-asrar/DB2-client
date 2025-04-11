@@ -1,0 +1,36 @@
+~DISPLAY=Processing Instruction
+~CURSORPOS=38
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=<?xml version="1.0" encoding="UTF-8"?>
+~~
+~DISPLAY=CDATA
+~CURSORPOS=9
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=<![CDATA[]]>
+~~
+~DISPLAY=CSS Reference
+~HIGHLIGHT=39,43
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=<?xml-stylesheet type="text/css" href="name.css"?>
+~~
+~DISPLAY=XSL Reference
+~HIGHLIGHT=39,43
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=<?xml-stylesheet type="text/xsl" href="name.xslt"?>
+~~
+~DISPLAY=Namespace
+~HIGHLIGHT=7,35
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=xmlns="http://www.w3.org/1999/xhtml"
+~~
+~DISPLAY=Namespace with Prefix
+~HIGHLIGHT=6,12
+~CATEGORY=1
+~SMART_INDENT=TRUE
+~TEXT=xmlns:prefix=""
+~~

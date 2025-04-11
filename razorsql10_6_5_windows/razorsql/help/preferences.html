@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<meta name="description" content="Information about RazorSQL preferences, such as SQL preferences, editor preferences, keyboard shortcuts, syntax highlighting, and more.">
+	<meta name="keywords" content="razorsql preferences">
+	<link href="../images/refresh.css" rel="stylesheet" type="text/css">
+	<title>RazorSQL Preferences</title>
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+		
+		
+		<!--header -->
+		<div id="header">			
+				
+			<h1 id="logo-text">Razor<span class="gray">SQL</span></h1>		
+			<h2 id="slogan">Query, Edit, Browse, and Manage Databases</h2>
+		
+		<!-- menu -->	
+		<div  id="header-tabs">
+			<ul>
+				<li  ><a href="http://www.razorsql.com/"><span>razorsql.com</span></a></li>
+				
+				
+				
+				
+				
+				<li  ><a href="http://www.razorsql.com/contact.php"><span>Contact</span></a></li>
+			</ul>
+		</div>			
+		
+		</div>		
+			
+		<!-- content-wrap starts here -->
+		<div id="content-wrap">
+				
+			
+				
+			<div id="main">
+			
+				<h1>Preferences</h1>
+				
+				<p>
+				Listed below are some preferences customizable via the Edit -> Preferences
+				menu option.
+				</p>
+				
+				<h2>SQL Preferences</h2>
+				<p>
+				<strong>SQL Statements / Query Tabs per connection: </strong> This preference tells RazorSQL
+					how many query results tabs to open per connection tab.  The default value is 8.
+					Once the max number of results tabs is open, the next query executed will remove
+					and close the resources of the oldest results tab and add the new query results.
+				<br><br>
+				<strong>Query Timeout: </strong> This setting tells RazorSQL how long to wait for a 
+					query to return results.  After the timeout expires, RazorSQL will attempt to
+					kill the process that is waiting on the query results.
+				<br><br>
+				<strong>Connect / Disconnect Timeout: </strong> This setting tells RazorSQL how
+					long to wait for a connection to be established or for a disconnect to happen.
+				<br><br>
+				<strong>Auto Table Lookup: </strong> This setting tells RazorSQL whether or not to
+					perform the auto table lookup when in the SQL editor.  If set to yes, when
+					RazorSQL detects that the user is at a point in an SQL statement where
+					the user would need to enter a table, a call will be made in the background to get a list
+					of tables and display them for the user to pick from.
+				<br><br>
+				<strong>Auto Column Lookup: </strong> This setting tells RazorSQL whether or not
+					to perform the auto column lookup when in the SQL editor.  If set to yes,
+					when RazorSQL detects that the user is at a point in an SQL statement
+					where the user would need to enter a column, a call will be made in the 
+					background to get a list of columns and display them for the user to pick from.
+				<br><br>
+				<strong>Auto Lookup Delay: </strong> This setting tells RazorSQL how long to wait
+					before performing the background call to lookup columns or tables and display
+					them to the user to pick from.
+				<br><br>
+				<strong>Cache Auto Column Lookup values: </strong> This setting tells RazorSQL
+					whether or not to cache values that have been retrieved via the auto column
+					lookup.  If set to yes, RazorSQL does not have to make a call to the database
+					to get column information for tables that have already had an auto column
+					lookup done on them.
+				<br><br>
+				<strong>Refresh Database Navigator on CREATE, ALTER, or DROP: </strong> This setting
+					tells RazorSQL whether or not to refresh the database navigator when an SQL
+					CREATE, ALTER, or DROP command is issued.  
+				<br><br>
+				<strong>Prompt for user input for ampersand in Queries: </strong> This setting
+					tells RazorSQL whether to use parameterized queries or not whenever an
+					ampersand is present. If checked, RazorSQL will prompt for a value for
+					any ampersand found in a query.  RazorSQL will then substitute the
+					value entered for the ampersand in the query.
+				<br><br>
+				<strong>Auto parse editor queries by semi-colon for Execute SQL: </strong> This option
+					tells RazorSQL whether or not to try to determine the query to executed based
+					on semi-colon position and cursor placement for the Execute SQL (One Statement)
+					option.  To execute multiple statements selected by semi-colons, the Execute SQL 
+					(All Statements) option can be used.
+				<br><br>
+				<strong>Parse highlighted text by semi-colon for Execute SQL: </strong> This setting
+				tells RazorSQL whether or not to try to determine if there are multiple queries
+				in the highlighted text when the Execute SQL option is selected.  If there are, 
+				and this setting checked, RazorSQL will attempt to execute each of the queries
+				<br><br>
+				<strong>Strip semi-colons from queries for applicable databases: </strong> 
+				This setting tells RazorSQL to strip semi-colons from queries for databases
+				that do not support having an ending semi-colon sent to the database with a query.
+				The databases that do not support this are DB2, Derby, Ingres, Oracle (for select, 
+				insert, update, and delete), and Sybase. 
+				<br><br>
+				<strong>Close resultsets on execute: </strong> This setting tells RazorSQL
+				to close any resources associated with an SQL statement after executing the statement.
+				This setting can be turned to on if there are table or row locking problems on the
+				database. If using this setting, the fetch size preference should be adjusted
+				so that enough rows are returned from the database per query.
+				<br><br>
+				<strong>Wrap database objects in generated SQL: </strong> This setting tells RazorSQL
+				to wrap database objects for tools that generate SQL such as the Create Table tool.
+				When Necessary means that RazorSQL will only wrap the database object if it is required,
+				such as if the object contains a space.  
+				<br><br>
+				<strong>Execute SQL Fetch Size: </strong> This settings tells RazorSQL how many rows to
+				fetch from the database per network call.  The default is to use the driver settings, 
+				which is typically around 100 rows.  If many rows are being returned from the database,
+				increasing the fetch size can increase performance, as the number of network calls
+				is reduced.
+				<br><br>
+				<strong>Fetch All Rows Fetch Size: </strong> This setting tells RazorSQL how many
+				rows to fetch from the database per network call.  Since the fetch all rows returns
+				all rows from the query, setting this value to a higher number can improve performance
+				by cutting down on the number of network calls.
+				<br><br>
+				<strong>Lines of SQL History to Keep: </strong> This settings tells RazorSQL how many
+					lines of SQL History to store.  The default is 20,000 lines.
+				<br><br>
+				<strong>Alternate colors in query results rows: </strong> Whether or not to
+					display every other row as a slightly different color in the query results
+					to improve readability.
+				<br><br>
+				<strong>Show NULLS as different color in query results: </strong> Whether or not
+					to indicate the difference between NULL values and empty values in the query
+					results by displaying NULLS in a different color.
+				<br><br>
+				<strong>Name query tab with first object from query: </strong> Whether or not
+				to give the query tab a name based on a table from the query that was executed.
+				<br><br>
+				<strong>Query results character set: </strong> If selected, RazorSQL will retrieve
+					results from the database in byte format and then apply the selected character
+					set to those bytes to produce character data.
+				<br><br>
+				<strong>Display Results as They Are Returned: </strong> If selected, when performing
+					a query via the Execute SQL - Fetch All Rows method, RazorSQL will display the results
+					as they are returned from the database, instead of waiting until all rows are
+					returned before displaying the results.
+				</p>
+				
+				<h2>Editor Preferences</h2>
+				<p>
+				Prompt for Save on Close / Exit
+				<br>
+				Tab Width
+				<br>
+				Open Previously Open Files at Startup
+				<br>
+				Auto Indent
+				<br>
+				Warn if File is Modified
+				<br>
+				Show Line Numbers
+				</p>
+				
+				<h2>Fonts</h2>
+				<p>
+				Editor Font
+				<br>
+				Query Results Font
+				<br>
+				Database Navigator Font
+				</p>
+				
+				<h2>Keyboard Shortcuts</h2>
+				<p>
+				Here users can customize the keyboard shortcuts used by RazorSQL.
+				</p>
+				
+				<h2>Toolbars</h2>
+				<p>
+				Here users can customize what icons appear on the RazorSQL toolbar.
+				</p>
+				
+				<h2>Syntax Highlighting</h2>
+				<p>
+				RazorSQL allows users to customize the syntax highlighting
+				colors and font weights for each supported language.
+				</p>
+				
+				<h2>Key Ahead</h2>
+				<p>
+				Users can add or remove key ahead text based on the programming
+				language type.
+				</p>
+				
+				<h2>Keep Alive</h2>
+				<p>
+				Users can decide whether or not to turn on connection keep alive
+				and, if keep alive is turned on, how often to execute a keep
+				alive call.
+				</p>
+			</div>
+			
+					<div id="sidebar">
+					
+				<div class="h1-light"><a href="installation.html">Installation</a></div>
+				
+				<div class="h1-light"><a href="application_menus.html">Complete Feature Reference</a></div>
+				
+				<div class="h1-light"><a href="getting_started.html">Getting Started</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="how_to_connect.html">How to Get Connected</a></li>
+						<li><a href="how_to_query.html">How to Execute Queries</a></li>
+						<li><a href="how_to_create_table.html">How to Create Tables</a></li>
+						<li><a href="how_to_search_data.html">How to Search for Data</a></li>
+						<li><a href="how_to_search_objects.html">How to Search for Objects</a></li>
+						<li><a href="how_to_import.html">How to Import Data</a></li>
+						<li><a href="how_to_export.html">How to Export Data</a></li>
+						<li><a href="how_to_edit.html">How to Edit Data</a></li>
+						<li><a href="how_to_files.html">How to Work with Files</a></li>			
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="getting_connected.html">Getting Connected</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_specific_help.html">Database Specific Help</a></li>
+						<li><a href="jdbc_odbc.html">General Connection Help</a></li>
+						<li><a href="connection_wizard.html">Connection Wizard</a></li>
+						<li><a href="builtin_connection.html">Built-in Connection Support</a></li>
+						<li><a href="included_drivers.html">Included Drivers</a></li>
+						<li><a href="razorsql_mysql_bridge.html">RazorSQL MySQL PHP Bridge</a></li>
+						<li><a href="razorsql_postgresql_bridge.html">PostgreSQL PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_bridge.html">SQL Server PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_asp_bridge.html">SQL Server ASP Bridge</a></li>
+						<li><a href="razorsql_jdbc_bridge.html">JDBC Bridge</a></li>
+						<li><a href="sqlite_driver.html">RazorSQL SQLite Driver</a></li>
+						<li><a href="odbc_setup.html">ODBC Help</a></li>
+						<li><a href="database_specific.html">Manual Database Specific JDBC Help</a></li>
+						<li><a href="driver_download.html">Where to Find JDBC Drivers</a></li>
+						
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="table_tools.html">Table Tools</a></div>
+					<div class="left-box">
+					<ul>				
+						<li><a href="create_table.html">Create Table</a></li>
+						<li><a href="create_view.html">Create View</a></li>
+						<li><a href="create_index.html">Create Index</a></li>
+						<li><a href="create_sequence.html">Create Sequence</a></li>
+						<li><a href="edit_table.html">Edit Table</a></li>
+						<li><a href="describe_table.html">Describe Table</a></li>
+						<li><a href="alter_table.html">Alter Table</a></li>
+						<li><a href="alter_view.html">Alter View</a></li>
+						<li><a href="view_table.html">View Table</a></li>
+						<li><a href="column_lookup.html">Column Lookup</a></li>
+						<li><a href="table_lookup.html">Table Lookup</a></li>
+						<li><a href="query_builder.html">Query Builder</a></li>
+						<li><a href="drop_table.html">Drop Table</a></li>
+						<li><a href="drop_view.html">Drop View</a></li>
+						<li><a href="drop_index.html">Drop Index</a></li>
+						<li><a href="drop_sequence.html">Drop Sequence</a></li>
+					</ul>	
+					</div>
+				<div class="h1-light"><a href="procedure_tools.html">Stored Procedure / Function <br>
+				/ Trigger Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="view_procedure.html">View Procedure / Function / Trigger</a></li>
+						<li><a href="edit_procedure.html">Procedure Editor</a></li>
+						<li><a href="edit_function.html">Function Editor</a></li>
+						<li><a href="edit_trigger.html">Trigger Editor</a></li>
+						<li><a href="edit_package.html">Package Editor</a></li>
+						<li><a href="edit_package.html">Package Body Editor</a></li>
+						<li><a href="create_function.html">Create Function</a></li>
+						<li><a href="create_procedure.html">Create Procedure</a></li>
+						<li><a href="create_trigger.html">Create Trigger</a></li>
+						<li><a href="create_package.html">Create Package</a></li>
+						<li><a href="create_package_body.html">Create Package Body</a></li>
+						<li><a href="execute_procedure.html">Execute Procedure / Function</a></li>
+						<li><a href="drop_function.html">Drop Function</a></li>
+						<li><a href="drop_procedure.html">Drop Procedure</a></li>
+						<li><a href="drop_trigger.html">Drop Trigger</a></li>
+						<li><a href="oracle_drop_package.html">Drop Package</a></li>
+						<li><a href="oracle_drop_package_body.html">Drop Package Body</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="data_tools.html">Data Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="export.html">Export</a></li>
+						<li><a href="import.html">Import</a></li>
+						<li><a href="compare.html">Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="sql_tools.html">SQL Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="sql_execute.html">Execute</a></li>
+						<li><a href="sql_execute_fetch_all.html">Execute Fetch All</a></li>
+						<li><a href="sql_execute_all.html">Execute All</a></li>
+						<li><a href="sql_explain.html">Explain Plan</a></li>
+						<li><a href="sql_commit_rollback.html">Commit / Rollback</a></li>
+						<li><a href="sql_history.html">SQL History</a></li>
+						<li><a href="sql_formatter.html">SQL Formatter</a></li>
+						<li><a href="query_scheduler.html">Query Scheduler</a></li>
+						<li><a href="ddl_generator.html">Generate DDL</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="database_tools.html">Database Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_navigator.html">Database Navigator</a></li>
+						<li><a href="database_search.html">Database Search</a></li> 
+						<li><a href="database_object_search.html">Database Object Search</a></li> 
+						<li><a href="database_meta.html">Meta Data Viewer</a></li>
+						<li><a href="create_database.html">Create Database</a></li>
+						<li><a href="create_user.html">Create User</a></li>
+						<li><a href="drop_database.html">Drop Database</a></li>
+						<li><a href="drop_user.html">Drop User</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="command_line.html">Command Line Interface</a></div>
+				<div class="h1-light"><a href="builtin_database.html">Built-in Database</a></div>
+				<div class="h1-light"><a href="editor_tools.html">Editor Tools</a></div>
+					<div class="left-box">
+					<ul>
+					
+						<li><a href="sql_editor.html">SQL Editor</a></li>
+						<li><a href="sort_query_results.html">Sort Query Results</a></li>
+						<li><a href="filter_query_results.html">Filter Query Results</a></li>
+						<li><a href="search_query_results.html">Search Query Results</a></li>
+						<li><a href="query_navigator.html">Query Navigator</a></li>
+						<li><a href="auto_column_lookup.html">Auto Column Lookup</a></li>
+						<li><a href="auto_table_lookup.html">Auto Table Lookup</a></li>
+						<li><a href="parameterized_queries.html">Parameterized Queries</a></li>
+						<li><a href="function_lookup.html">Function Lookup</a></li>
+						<li><a href="keyahead.html">Key Ahead</a></li>
+						<li><a href="execute_shell.html">Execute Shell / Batch Scripts</a></li>
+						<li><a href="find_replace.html">Find / Replace</a></li>
+						<li><a href="find_replace_in_files.html">Find / Replace in Files</a></li>
+						<li><a href="replace_range.html">Replace Range</a></li>
+						<li><a href="match_bracket.html">Match Bracket</a></li>
+						<li><a href="match_tag.html">Match Tag</a></li>
+						<li><a href="file_compare.html">File Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="plugin_guide.html">Plugin Guide</a></div>
+				<div class="h1-light"><a href="preferences.html">Preferences</a></div>
+				<div class="h1-light"><a href="support_questions.html">Common Support Questions</a></div>
+			</div>	
+		
+		<!-- content-wrap ends here -->	
+		</div>
+		
+		
+					
+				<!--footer starts here-->
+		<div id="footer">
+			
+		<span id="footer-left">
+			&copy; 2011 <strong><a href="http://www.richardsonsoftware.com/">Richardson Software, LLC</a></strong> | 
+			 
+			
+			<a href="http://www.razorsql.com/">Home</a>
+			
+   		</span>
+				
+		</div>	
+<!-- wrap ends here -->
+</div>
+<!--stats--></body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<meta name="description" content="Information on connecting to databases using JDBC or ODBC.">
+	<meta name="keywords" content="razorsql jdbc object connection help">
+	<link href="../images/refresh.css" rel="stylesheet" type="text/css">
+	<title>RazorSQL - Connecting to Databases using JDBC or ODBC</title>
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+		
+		
+		<!--header -->
+		<div id="header">			
+				
+			<h1 id="logo-text">Razor<span class="gray">SQL</span></h1>		
+			<h2 id="slogan">Query, Edit, Browse, and Manage Databases</h2>
+		
+		<!-- menu -->	
+		<div  id="header-tabs">
+			<ul>
+				<li  ><a href="http://www.razorsql.com/"><span>razorsql.com</span></a></li>
+				
+				
+				
+				
+				
+				<li  ><a href="http://www.razorsql.com/contact.php"><span>Contact</span></a></li>
+			</ul>
+		</div>			
+		
+		</div>		
+			
+		<!-- content-wrap starts here -->
+		<div id="content-wrap">
+				
+			
+				
+			<div id="main">
+			
+				<h1>RazorSQL Getting Connected with JDBC or ODBC</h1>
+				
+				<p>
+				RazorSQL can connect to databases using a piece of software known as a JDBC driver.  A JDBC driver is a collection
+				of Java classes and possibly native software that handles the process of connecting to and communicating 
+				with a database.  Database vendors provide JDBC drivers, usually free of charge, so that software developers
+				can write code to connect to the specific database vendor's database without having to worry about vendor specific coding.
+				Because of this, a software developer can connect to multiple types of databases using the same programming code.
+				The vendor specific data communication details are handled by the JDBC driver.  Since RazorSQL communicates 
+				with databases using JDBC drivers, RazorSQL can connect to any database that provides a functional JDBC driver.
+				</p>
+				<p>
+				On Windows machines, RazorSQL also ships with a built-in JDBC-ODBC bridge.  Thus, RazorSQL can also connect to a database using
+				an ODBC data source.  No external JDBC drivers are required for this type of connection.
+				</p>
+				<p>
+				RazorSQL ships with JDBC drivers for certain databases - DB2, Derby, Firebird, Frontbase, HSQLDB, Informix,
+				OpenBase, Oracle, PostgreSQL, SQLite, SQL Anywhere, SQL Server, and Sybase ASE -
+				and includes an auto-install feature for the MySQL driver.  
+				Therefore, RazorSQL can connect to these 
+				databases out of the box.  However, many database vendors do not allow distribution of their JDBC drivers even
+				though the vendors allow downloading of the JDBC drivers for free.  Because of this, for certain databases,
+				the RazorSQL user is required to download the JDBC driver to their machine, and tell the RazorSQL software
+				where the driver file was downloaded. For more information about where to find JDBC 
+				drivers for specific database products, see the following web page:
+				</p>
+				<p>
+				<strong><a href="driver_download.html"><span>Where to Find JDBC Drivers</span></a></strong>
+				<p>
+				This document will
+				now talk about the database connection process.
+				</p>
+				<p>
+				The first step to connecting to a database through RazorSQL is to create a connection profile.
+				To create a connection profile, launch RazorSQL and then select Connections -> Add Connection Profile.  
+				This launches the Connection Wizard process.
+				</p>
+				<p>
+				Once you have arrived at the Add Connection Profile tab, you will be presented with a choice of various database vendors
+				to select from in a list.  If the database type you wish to connect to is found in list, select it. 
+				Otherwise, select the OTHER option at the bottom of the list.
+				</p>
+				<p>
+				After selecting the database type, the next step is to select the connection type.  The Connection Type list
+				contains a JDBC option, an ODBC option (Windows only), and may contain built-in JDBC driver information if RazorSQL
+				ships with JDBC drivers for the database vendor selected in the previous step.  Select whether you want
+				to connect via the built-in JDBC driver (if available), JDBC, or ODBC (Windows only).
+				</p>
+				<p>
+				After selecting the connection type, the next step is to enter the driver and database information.  If
+				you selected a built-in driver, the driver information will be completed for you.
+				The following fields may be shown depending on your previous selections:
+				</p>
+				<p>
+				<strong>PROFILE NAME:</strong> After creating a connection profile, RazorSQL displays a list of created profiles in a drop-down
+				box.  Enter the name you would like to appear in that box here.
+				</p>
+				<p>
+				<strong>DRIVER LOCATION:</strong> The location of the JDBC driver file on your machine.  This field applies
+				to JDBC connections only.  The driver file is usually a .jar or .zip file.  If the driver requires multiple 
+				files, separate the complete file paths with semi-colons.
+				</p>
+				<p>
+				<strong>DRIVER CLASS:</strong> The Java driver class to be called for the JDBC driver.  Consult your driver
+				documentation to determine the name of this class.  This field applies to JDBC connections only. 
+				</p>
+				<p>
+				<strong>LOGIN:</strong> If the database you wish to connect to requires a user name or login id, enter that information in the login field.
+				</p>
+				<p>
+				<strong>PASSWORD:</strong> If the database you wish to connect to requires a password, enter that information in the password field.
+				</p>
+				<p>
+				<strong>SAVE PASSWORD:</strong> If you wish RazorSQL to save the database password on your machine so you do not need to re-type it,
+				check the Save Password checkbox.  RazorSQL does encrypt the password so that it is not stored in clear text.
+				</p>
+				<p>
+				<strong>HOST:</strong> This is the name or IP address of the machine on which the database is running.  If the database
+				is running on the local machine, this value would be localhost or 127.0.0.1.  This value is usually only
+				optional if the database is running on the local machine.  
+				</p>
+				<p>
+				<strong>PORT:</strong> This is the port on which the database is listening.  Many databases have default ports.  If 
+				the database has a default port and is set up to listen on the default port, 
+				this value can usually be left blank. RazorSQL will prepopulate this field if the database have a known
+				default port.  If the database server is not listening on the default port, the prepopulated value
+				will need to be changed.
+				</p>
+				<p>
+				<strong>DATABASE NAME:</strong> This can refer to the name or alias of the database you wish to connect to.
+				Often this field is optional.  In these cases, it may be left blank.
+				</p>
+				<p>
+				<strong>SERVICE NAME:</strong> Some database vendors refer to database identifiers as service names.  
+				</p>
+				<p>
+				<strong>SID:</strong> Some database vendors refer to database identifiers as an SID. 
+				</p>
+				<p>
+				<strong>DATA SOURCE NAME:</strong> The name of the ODBC data source that pertains to the database you wish to connect to.
+				This applies to ODBC connections only.
+				</p>
+				<p>
+				<strong>AUTO COMMIT:</strong> The auto commit field is used to determine whether RazorSQL should automatically send a commit
+				to the database after each query is executed.  If you would like a commit sent to the database after each query is
+				executed, select "Yes" for auto commit, if not, select "No".  Some databases may not support transactions or rollbacks.
+				In this case,
+				the auto commit field should be set to "Yes".  In other cases, some databases may require the user to manually enter a commit
+				after running each query to function properly.  In these cases, it may be more convenient to set auto commit to "Yes".  
+				Consult your database documentation for more information on transactions, rollbacks, and commits.
+				</p>
+				<p>
+				<strong>JDBC URL:</strong> Each JDBC driver requires a JDBC URL to be passed to the JDBC driver before a connection to the database 
+				can be made.  This JDBC URL describes certain details about the database such as where it is located and 
+				on which port it is running, etc.  Each JDBC driver has its own format for the JDBC URL.  
+				Consult you JDBC driver documentation for more
+				information regarding the JDBC URL.
+				</p>
+				<p>
+				After entering the requried information in the connection wizard, hit the "CONNECT" button to attempt to make a connection
+				to the database.  If the connection is successful, the profile will be created and stored so that connections can be made
+				at later times, and a new query runner session will be established to the database.  If the connection is not successful,
+				an error message received from the JDBC driver will be displayed.
+				</p>
+			</div>
+			
+						<div id="sidebar">
+					
+				<div class="h1-light"><a href="installation.html">Installation</a></div>
+				
+				<div class="h1-light"><a href="application_menus.html">Complete Feature Reference</a></div>
+				
+				<div class="h1-light"><a href="getting_started.html">Getting Started</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="how_to_connect.html">How to Get Connected</a></li>
+						<li><a href="how_to_query.html">How to Execute Queries</a></li>
+						<li><a href="how_to_create_table.html">How to Create Tables</a></li>
+						<li><a href="how_to_search_data.html">How to Search for Data</a></li>
+						<li><a href="how_to_search_objects.html">How to Search for Objects</a></li>
+						<li><a href="how_to_import.html">How to Import Data</a></li>
+						<li><a href="how_to_export.html">How to Export Data</a></li>
+						<li><a href="how_to_edit.html">How to Edit Data</a></li>
+						<li><a href="how_to_files.html">How to Work with Files</a></li>			
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="getting_connected.html">Getting Connected</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_specific_help.html">Database Specific Help</a></li>
+						<li><a href="jdbc_odbc.html">General Connection Help</a></li>
+						<li><a href="connection_wizard.html">Connection Wizard</a></li>
+						<li><a href="builtin_connection.html">Built-in Connection Support</a></li>
+						<li><a href="included_drivers.html">Included Drivers</a></li>
+						<li><a href="razorsql_mysql_bridge.html">RazorSQL MySQL PHP Bridge</a></li>
+						<li><a href="razorsql_postgresql_bridge.html">PostgreSQL PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_bridge.html">SQL Server PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_asp_bridge.html">SQL Server ASP Bridge</a></li>
+						<li><a href="razorsql_jdbc_bridge.html">JDBC Bridge</a></li>
+						<li><a href="sqlite_driver.html">RazorSQL SQLite Driver</a></li>
+						<li><a href="odbc_setup.html">ODBC Help</a></li>
+						<li><a href="database_specific.html">Manual Database Specific JDBC Help</a></li>
+						<li><a href="driver_download.html">Where to Find JDBC Drivers</a></li>
+						
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="table_tools.html">Table Tools</a></div>
+					<div class="left-box">
+					<ul>				
+						<li><a href="create_table.html">Create Table</a></li>
+						<li><a href="create_view.html">Create View</a></li>
+						<li><a href="create_index.html">Create Index</a></li>
+						<li><a href="create_sequence.html">Create Sequence</a></li>
+						<li><a href="edit_table.html">Edit Table</a></li>
+						<li><a href="describe_table.html">Describe Table</a></li>
+						<li><a href="alter_table.html">Alter Table</a></li>
+						<li><a href="alter_view.html">Alter View</a></li>
+						<li><a href="view_table.html">View Table</a></li>
+						<li><a href="column_lookup.html">Column Lookup</a></li>
+						<li><a href="table_lookup.html">Table Lookup</a></li>
+						<li><a href="query_builder.html">Query Builder</a></li>
+						<li><a href="drop_table.html">Drop Table</a></li>
+						<li><a href="drop_view.html">Drop View</a></li>
+						<li><a href="drop_index.html">Drop Index</a></li>
+						<li><a href="drop_sequence.html">Drop Sequence</a></li>
+					</ul>	
+					</div>
+				<div class="h1-light"><a href="procedure_tools.html">Stored Procedure / Function <br>
+				/ Trigger Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="view_procedure.html">View Procedure / Function / Trigger</a></li>
+						<li><a href="edit_procedure.html">Procedure Editor</a></li>
+						<li><a href="edit_function.html">Function Editor</a></li>
+						<li><a href="edit_trigger.html">Trigger Editor</a></li>
+						<li><a href="edit_package.html">Package Editor</a></li>
+						<li><a href="edit_package.html">Package Body Editor</a></li>
+						<li><a href="create_function.html">Create Function</a></li>
+						<li><a href="create_procedure.html">Create Procedure</a></li>
+						<li><a href="create_trigger.html">Create Trigger</a></li>
+						<li><a href="create_package.html">Create Package</a></li>
+						<li><a href="create_package_body.html">Create Package Body</a></li>
+						<li><a href="execute_procedure.html">Execute Procedure / Function</a></li>
+						<li><a href="drop_function.html">Drop Function</a></li>
+						<li><a href="drop_procedure.html">Drop Procedure</a></li>
+						<li><a href="drop_trigger.html">Drop Trigger</a></li>
+						<li><a href="oracle_drop_package.html">Drop Package</a></li>
+						<li><a href="oracle_drop_package_body.html">Drop Package Body</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="data_tools.html">Data Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="export.html">Export</a></li>
+						<li><a href="import.html">Import</a></li>
+						<li><a href="compare.html">Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="sql_tools.html">SQL Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="sql_execute.html">Execute</a></li>
+						<li><a href="sql_execute_fetch_all.html">Execute Fetch All</a></li>
+						<li><a href="sql_execute_all.html">Execute All</a></li>
+						<li><a href="sql_explain.html">Explain Plan</a></li>
+						<li><a href="sql_commit_rollback.html">Commit / Rollback</a></li>
+						<li><a href="sql_history.html">SQL History</a></li>
+						<li><a href="sql_formatter.html">SQL Formatter</a></li>
+						<li><a href="query_scheduler.html">Query Scheduler</a></li>
+						<li><a href="ddl_generator.html">Generate DDL</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="database_tools.html">Database Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_navigator.html">Database Navigator</a></li>
+						<li><a href="database_search.html">Database Search</a></li> 
+						<li><a href="database_object_search.html">Database Object Search</a></li> 
+						<li><a href="database_meta.html">Meta Data Viewer</a></li>
+						<li><a href="create_database.html">Create Database</a></li>
+						<li><a href="create_user.html">Create User</a></li>
+						<li><a href="drop_database.html">Drop Database</a></li>
+						<li><a href="drop_user.html">Drop User</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="command_line.html">Command Line Interface</a></div>
+				<div class="h1-light"><a href="builtin_database.html">Built-in Database</a></div>
+				<div class="h1-light"><a href="editor_tools.html">Editor Tools</a></div>
+					<div class="left-box">
+					<ul>
+					
+						<li><a href="sql_editor.html">SQL Editor</a></li>
+						<li><a href="sort_query_results.html">Sort Query Results</a></li>
+						<li><a href="filter_query_results.html">Filter Query Results</a></li>
+						<li><a href="search_query_results.html">Search Query Results</a></li>
+						<li><a href="query_navigator.html">Query Navigator</a></li>
+						<li><a href="auto_column_lookup.html">Auto Column Lookup</a></li>
+						<li><a href="auto_table_lookup.html">Auto Table Lookup</a></li>
+						<li><a href="parameterized_queries.html">Parameterized Queries</a></li>
+						<li><a href="function_lookup.html">Function Lookup</a></li>
+						<li><a href="keyahead.html">Key Ahead</a></li>
+						<li><a href="execute_shell.html">Execute Shell / Batch Scripts</a></li>
+						<li><a href="find_replace.html">Find / Replace</a></li>
+						<li><a href="find_replace_in_files.html">Find / Replace in Files</a></li>
+						<li><a href="replace_range.html">Replace Range</a></li>
+						<li><a href="match_bracket.html">Match Bracket</a></li>
+						<li><a href="match_tag.html">Match Tag</a></li>
+						<li><a href="file_compare.html">File Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="plugin_guide.html">Plugin Guide</a></div>
+				<div class="h1-light"><a href="preferences.html">Preferences</a></div>
+				<div class="h1-light"><a href="support_questions.html">Common Support Questions</a></div>
+			</div>	
+		
+		<!-- content-wrap ends here -->	
+		</div>
+					
+				<!--footer starts here-->
+		<div id="footer">
+			
+		<span id="footer-left">
+			&copy; 2011 <strong><a href="http://www.richardsonsoftware.com/">Richardson Software, LLC</a></strong> | 
+			 
+			
+			<a href="http://www.razorsql.com/">Home</a>
+			
+   		</span>
+				
+		</div>	
+<!-- wrap ends here -->
+</div>
+<!--stats--></body>
+</html>

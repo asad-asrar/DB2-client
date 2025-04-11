@@ -1,0 +1,593 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="description" content="RazorSQL provides a command line interface for performing SQL commands without launching the GUI portion of RazorSQL.">
+	<meta name="keywords" content="RazorSQL command line interface">
+	<link href="../images/refresh.css" rel="stylesheet" type="text/css">
+	<title>RazorSQL Command Line Interface</title>
+</head>
+
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+		
+		
+		<!--header -->
+		<div id="header">			
+				
+			<h1 id="logo-text">Razor<span class="gray">SQL</span></h1>		
+			<h2 id="slogan">Query, Edit, Browse, and Manage Databases</h2>
+		
+		<!-- menu -->	
+		<div  id="header-tabs">
+			<ul>
+				<li  ><a href="http://www.razorsql.com/"><span>razorsql.com</span></a></li>
+				
+				
+				
+				
+				
+				<li  ><a href="http://www.razorsql.com/contact.php"><span>Contact</span></a></li>
+			</ul>
+		</div>			
+		
+		</div>		
+			
+		<!-- content-wrap starts here -->
+		<div id="content-wrap">
+					
+			<div id="main">
+			
+				<h1>Command Line Interface</h1>
+				<p>
+				RazorSQL has a command line interface for users to call RazorSQL operations
+				without actually launching the RazorSQL graphical program.  The command line
+				interface can be used for users who want to run scheduled programs such
+				as nightly batch scripts.  The command line interface can also be used
+				to launch RazorSQL and have it connect using data passed in to the command
+				line interface.
+				</p>
+				
+				<p>
+				RazorSQL version 5.2 and newer includes a GUI tool for generating command line calls.  The
+				GUI tool is available via the following menu option:
+				<br><br>
+				<strong>DB Tools -> Command Line Call Generator</strong>
+				</p>
+				
+				<p>
+				Please use the above tool to generate commands. This tool will contain only commands
+				and parameters that are supported for the version of RazorSQL you are using.
+				</p>
+				
+				<p>&nbsp;</p>
+				
+				<p>
+				As of RazorSQL version 10, the following commands are supported.  
+				<br><br>
+				<strong>Backup Database: </strong> This command will generate a backup file for the database.  Depending
+					on the database type, it can generate DDL for Tables, Views, Indexes, Functions, Procedures, and Triggers.
+					It will also generate SQL insert statements for table data.
+					
+				<br><br>
+				<strong>Backup Table: </strong> This command will generate DDL for the table and SQL insert statements for 
+					data in the table.
+					
+				<br><br>
+				<strong>Execute SQL Script: </strong> This command will execute a file of SQL statements.  The statements
+					must be non-select statements such as create, insert, update, delete, etc.
+				
+				<br><br>
+				<strong>Export Query Results / Table Data: </strong> This command will execute a query and generate a file
+					containing the results. There are several output types supported for the file such as a delimited file,
+					SQL insert statements, JSON, XML, HTML, or Excel.
+				
+				<br><br>
+				<strong>Import Table Data: </strong> This command will import data from a delimited file into a database table.
+				
+				<br><br>
+				<strong>Compare Query Results: </strong> This command will generate a file that does a comparison against
+					two query result sets.
+				<br><br>
+				<strong>Convert Table: </strong> This command will generate DDL and SQL insert statements to convert a 
+					table from one database type to another database type, for example, MySQL to PostgreSQL.
+				<br><br>
+				<strong>Test Connection: </strong> This command will test a RazorSQL connection profile to see if the
+					database connection succeeds.
+				<br><br>
+				<strong>Connect (Launch GUI): </strong> This command will launch the RazorSQL GUI and make a connection
+					using the connection data passed in to the command line process.  This command does not need a
+					RazorSQL connection profile to exist to make the connection.  This command is useful for connections
+					that require auto generated tokens to connect such as Amazon RDS databases using IAM authentication.
+					For example, a script can be written to generate the -connect command passing in the authentication
+					token that was generated earlier in the script.
+				</p>
+				
+				
+				<p>&nbsp;</p>
+				
+				<p>
+				<strong>Executing a Command</strong>
+				<br><br>
+				To use the RazorSQL command line interface, RazorSQL must be launched from a 
+				command prompt or terminal window or script.  There are potentially slight differences depending
+				on whether the operating system is Windows, Mac, or Linux / Unix.
+				<br><br>
+				The format to run RazorSQL in command mode is the following:
+				<br><br>
+				java -jar razorsql.jar -command "parameter1" "parameter2" . . .
+				<br><br>
+				For example:
+				<br><br>
+				OS X / Linux / Unix
+				<br><br>
+				Change directory to the RazorSQL installation directory and execute the following:
+				<br><br>
+				java -jar razorsql.jar -export "Oracle Express" "select * from employee" csv "/Users/user/employee.txt" yes
+				<br><br>
+				Windows
+				<br><br>
+				Change directory to the RazorSQL installation directory and execute the following:
+				<br><br>
+				jre\bin\java -jar razorsql.jar -export "Oracle Express" "select * from employee" csv "C:\data\employee.txt" yes
+				<br><br>
+				For commands that may take a large amount of memory, the initial and max heap
+				size settings for RazorSQL can be increased using the following syntax:
+				<br><br>
+				java -Xms64M -Xmx384M -jar razorsql.jar -command "parameter1" "parameter2" . . .
+				<br><br>
+				This command will start RazorSQL with 64MB of initial memory, with a maximum
+				memory of 384MB.
+				</p>
+				<p>&nbsp;</p>
+				<p>
+				<strong>Supported Commands</strong>
+				</p>
+				
+				<p>
+				RazorSQL 7.3 adds the following command:
+				<ul>
+					<li><span>-convert (for converting a table from one database type to another)</span></li>
+				</ul>
+				</p>
+				
+				<p>
+				RazorSQL 5.5.4 adds the following command:
+				<ul>
+					<li><span>-compare (for comparing the results of two queries)</span></li>
+				</ul>
+				</p>
+				
+				<p>
+				RazorSQL versions 5.2 adds the following commands:
+				<ul>
+					<li><span>-backup (for backing up a database or schema)</span></li>
+					<li><span>-backuptable (for backing up a database table)</span></li>
+					<li><span>-execute (for executing an SQL script file)</span></li>
+				</ul>
+				</p>
+				<p>
+				
+				RazorSQL versions 5.1.6 and earlier support the following commands:
+				<ul>
+					<li><span>-export (for exporting a database table)</span></li>
+					<li><span>-import (for importing data into a database table)</span></li>
+				</ul>
+				
+				<p>&nbsp;</p>
+				
+				<h2>Export Tables</h2>
+				<p>
+				The <strong>-export</strong>
+				command has the following parameters:
+				<br><br>
+				<strong>NOTE:</strong> Any parameters with spaces need to be enclosed in quotes (" ")
+		
+				<br><br>
+				parameter 1 [required]: -export (the command to execute)
+				<br><br>
+				parameter 2 [required]: profile_name (the name of the profile to use to get the connection)
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 3 [required]: query or path to file containing a query (the query to run to get the data to export)
+					if this value is a path to an existing file, RazorSQL will read the contents of the file and execute it as a query
+				<br><br>
+				parameter 4 [required]: export_format (csv,tsv,xls,insert)
+				<br><br>
+				parameter 5 [required]: file to export data to
+				<br><br>
+				parameter 6 [optional]: show_columns (yes,no) 
+				<br><br>
+				parameter 7 [optional]: convert nulls to blanks (yes,no)
+				<br><br>
+				parameter 8 [optional]: trim spaces (yes,no)
+				<br><br>
+				parameter 9 [optional]: date format (MM = month, dd = day, yyyy = year)
+				<br><br>
+				parameter 10 [optional]: timestamp format (MM = month, dd = day, yyyy = year, HH = hour, mm = minute, ss = second, SSS = millisecond)
+				<br><br>
+				parameter 11 (RazorSQL 5.6.2 or later) [optional]: characters to append at the end of each row
+				<br><br>
+				parameter 12-14 for database connection password override, fetch size override, and multi-value insert syntax
+					(Use the DB Tools -> Command Line Call Generator to determine if your version of RazorSQL supports
+					these parameters)
+				</p>
+				
+				<p>&nbsp;</p>
+				
+				<h2>Import Table Data</h2>
+				
+				<p>The <strong>-import</strong> command has the following parameteres:
+				<br><br>
+				<strong>NOTE:</strong> Any parameters with spaces need to be enclosed in quotes (" ")
+		
+				<br><br>
+				parameter 1 [required]: -import (the command to execute)
+				<br><br>
+				parameter 2 [required]: profile_name (the name of the profile to use to get the connection).
+					Database connection data can be passed instead of a profile name using the following pipe delimited
+					format:
+					<br><br>
+					JDBC URL|JDBC Driver Class|JDBC Driver File System Location|User Name|Password
+					<br>
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 3 [required]: delimited_file_location (the location of the comma, tab, or space delimited file)
+				<br><br>
+				parameter 4 [required]: delimiter (valid options are COMMA, SPACE, or TAB)
+				<br><br>
+				parameter 5 [required]: database (the database that contains the table, enter "null" if this is not applicable)
+				<br><br>
+				parameter 6 [required]: schema_or_owner (the schema or owner that contains the table, enter "null" if this is not applicable)
+				<br><br>
+				parameter 7 [required]: table (the name of the table to import the data to)
+				<br><br>
+				parameter 8 [optional]: database password override
+				<br><br>
+				parameter 9: File start row [optional]: (use DB Tools->Command Line Call Generator to determine support)
+				<br><br>
+				parameter 10: Show output [optional]: (use DB Tools->Command Line Call Generator to determine support): true or false - determines whether statements executed are printed.
+				<br><br>
+				parameter 11: Use Prepared Statements [optional]: (use DB Tools->Command Line Call Generator to determine support): true or false - RazorSQL will try to use prepared statements
+					for better performance if supported by the database and the data types on the table.
+				<br><br>
+				parameter 12: File Encoding [optional]: (use DB Tools->Command Line Call Generator to determine support): The encoding of the import file.  If null or blank,
+					the default operating system encoding will be used.
+				<br><br>
+				parameter 13: Halt on Error [optional]: (use DB Tools->Command Line Call Generator to determine support): true or false - determines whether SQL statements
+					are printed to the standard output
+				
+				<p>&nbsp;</p>
+				
+				<h2>Backup Schema / Database</h2>
+				
+				<p>The <strong>-backup</strong> command has the following parameters:
+				<br><br>
+				<strong>NOTE:</strong> Any parameters with spaces need to be enclosed in quotes (" ")
+		
+				<br><br>
+				parameter 1 [required]: -backup (the command to execute)
+				<br><br>
+				parameter 2 [required]: profile_name (the name of the profile to use to get the connection)
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 3 [required]: database (the database that contains the objects. Enter "null" if this is not applicable)
+				<br><br>
+				parameter 4 [required]: schema (the schema that contains the objects. Enter "null" if this is not applicable)
+				<br><br>
+				parameter 5 [required]: SQL statement separator (enter the text to use to separate SQL statements generated, for example, ;)
+				<br><br>
+				parameter 6 [required]: backup file encoding (enter null for default or the name of the encoding, e.g., "UTF-8")
+				<br><br>
+				parameter 7 [required]: backup file location (enter the path to the backup file)
+				<br><br>
+				parameter 8 [required]: fully qualify object names (YES or NO)
+				<br><br>
+				parameter 9 [required]: objects to back up (comma separated list of objects to back up, e.g., tables,views,indexes,procedures,functions,triggers)
+				<br><br>
+				parameter 10 [optional]: only generate DDL.  Do not generate SQL insert statements for table data.
+				
+				</p>
+				
+				<p>&nbsp;</p>
+				
+				<h2>Backup Table</h2>
+				
+				<p>The <strong>-backuptable</strong> command has the following parameters:
+				<br><br>
+				<strong>NOTE:</strong> Any parameters with spaces need to be enclosed in quotes (" ")
+		
+				<br><br>
+				parameter 1 [required]: -backuptable (the command to execute)
+				<br><br>
+				parameter 2 [required]: profile_name (the name of the profile to use to get the connection)
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 3 [required]: database (the database that contains the objects. Enter "null" if this is not applicable)
+				<br><br>
+				parameter 4 [required]: schema (the schema that contains the objects. Enter "null" if this is not applicable)
+				<br><br>
+				parameter 5 [required]: table (the name of the table to backup)
+				<br><br>
+				parameter 6 [required]: SQL statement separator (enter the text to use to separate SQL statements generated, for example, ;)
+				<br><br>
+				parameter 7 [required]: backup file encoding (enter null for default or the name of the encoding, e.g., "UTF-8")
+				<br><br>
+				parameter 8 [required]: backup file location (enter the path to the backup file)
+				<br><br>
+				parameter 9 [required]: fully qualify object names (YES or NO)
+				<br><br>
+				parameter 10 [optional]: only generate DDL.  Do not generate SQL insert statements.
+				
+				</p>
+				
+				<p>&nbsp;</p>
+				
+				<h2>Execute SQL Script</h2>
+				
+				<p>The <strong>-execute</strong> command has the following parameters:
+				<br><br>
+				<strong>NOTE:</strong> Any parameters with spaces need to be enclosed in quotes (" ")
+		
+				<br><br>
+				parameter 1 [required]: -execute (the command to execute)
+				<br><br>
+				parameter 2 [required]: profile_name (the name of the profile to use to get the connection)
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 3 [required]: sql file location (the location of the SQL script to execute)
+				<br><br>
+				parameter 4 [required]: sql statement separator
+				<br><br>
+				parameter 5 [required]: sql file encoding (enter null for default or the name of the encoding, e.g., "UTF-8")
+				<br><br>
+				parameter 6 [required]: batch size (how many statements to execute per network call)
+				<br><br>
+				parameter 7 [optional]: (use DB Tools->Command Line Call Generator to determine support): database password override
+				<br><br>
+				parameter 8 [optional]: (use DB Tools->Command Line Call Generator to determine support): Show output: true or false
+				<br><br>
+				parameter 9 [optional]: (use DB Tools->Command Line Call Generator to determine support): Halt on Error: true or false
+				</p>
+				
+				<p>&nbsp;</p>
+				<h2>Compare</h2>
+				<p>The <strong>compare</strong> command has the following parameters:
+				<br><br>
+				<strong>NOTE:</strong> Any parameters with spaces need to be enclosed in quotes (" ")
+				<br><br>
+				parameter 1 [required]: -compare
+				<br><br>
+				parameter 2 [required]: profile_name1 (the name of the connection profile to use to get the connection)
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 3 [required]: query1 (the query to execute on profile_name1)
+				<br><br>
+				parameter 4 [required]: profile_name2 (the name of the connection profile to use to get the connection)
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 5 [required]: query2 (the query to execute on profile_name2)
+				<br><br>
+				parameter 6 [required]: output_file (the location of the output file that the compare results will get written to)
+				
+				</p>
+				
+				<p>&nbsp;</p>
+				<h2>Convert</h2>
+				<p>The <strong>convert</strong> command has the following parameters:
+				<br><br>
+				<strong>NOTE:</strong> Any parameters with spaces need to be enclosed in quotes (" ")
+				<br><br>
+				parameter 1 [required]: -convert
+				<br><br>
+				parameter 2 [required]: profile_name (the name of the connection profile to use to get the connection)
+				<br>
+				NOTE: The profile must have the save password option checked
+				<br><br>
+				parameter 3 [required]: database (the database or catalog the table is in - enter null if not applicable)
+				<br><br>
+				parameter 4 [required]: schema (the schema the table is in - enter null if not applicable)
+				<br><br>
+				parameter 5 [required]: table (the name of the table to convert)
+				<br><br>
+				parameter 6 [required]: statement separator (the separator for SQL insert statements / DDL statements)
+				<br><br>
+				parameter 7 [required]: sql file encoding (enter null for default or the name of the encoding, e.g., "UTF-8")
+				<br><br>
+				parameter 8 [required]: conversion file (the location of the file to write out the converted data to)
+				<br><br>
+				parameter 9 [required]: qualify object names (YES or NO: whether to fully qualify table names)
+				<br><br>
+				parameter 10 [required]: ddl only (YES or NO: whether to only include create / alter statements with no inserts)
+				<br><br>
+				parameter 11 [required]: new database type (the type of database to convert to -Oracle, MySQL, etc.)
+				<br><br>
+				parameter 12 [required]: new table name (the name of the converted table)
+				<br><br>
+				parameter 13 [optional]: password override (use this password instead of the password on the connection profile)
+				<br><br>
+				parameter 14 [optional]: inserts only (YES or NO: whether to only include SQL insert statements and no DDL statements)
+				</p>
+				
+			</div>
+			
+			
+						<div id="sidebar">
+					
+				<div class="h1-light"><a href="installation.html">Installation</a></div>
+				
+				<div class="h1-light"><a href="application_menus.html">Complete Feature Reference</a></div>
+				
+				<div class="h1-light"><a href="getting_started.html">Getting Started</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="how_to_connect.html">How to Get Connected</a></li>
+						<li><a href="how_to_query.html">How to Execute Queries</a></li>
+						<li><a href="how_to_create_table.html">How to Create Tables</a></li>
+						<li><a href="how_to_search_data.html">How to Search for Data</a></li>
+						<li><a href="how_to_search_objects.html">How to Search for Objects</a></li>
+						<li><a href="how_to_import.html">How to Import Data</a></li>
+						<li><a href="how_to_export.html">How to Export Data</a></li>
+						<li><a href="how_to_edit.html">How to Edit Data</a></li>
+						<li><a href="how_to_files.html">How to Work with Files</a></li>			
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="getting_connected.html">Getting Connected</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_specific_help.html">Database Specific Help</a></li>
+						<li><a href="jdbc_odbc.html">General Connection Help</a></li>
+						<li><a href="connection_wizard.html">Connection Wizard</a></li>
+						<li><a href="builtin_connection.html">Built-in Connection Support</a></li>
+						<li><a href="included_drivers.html">Included Drivers</a></li>
+						<li><a href="razorsql_mysql_bridge.html">RazorSQL MySQL PHP Bridge</a></li>
+						<li><a href="razorsql_postgresql_bridge.html">PostgreSQL PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_bridge.html">SQL Server PHP Bridge</a></li>
+						<li><a href="razorsql_sqlserver_asp_bridge.html">SQL Server ASP Bridge</a></li>
+						<li><a href="razorsql_jdbc_bridge.html">JDBC Bridge</a></li>
+						<li><a href="sqlite_driver.html">RazorSQL SQLite Driver</a></li>
+						<li><a href="odbc_setup.html">ODBC Help</a></li>
+						<li><a href="database_specific.html">Manual Database Specific JDBC Help</a></li>
+						<li><a href="driver_download.html">Where to Find JDBC Drivers</a></li>
+						
+					</ul>
+					</div>
+				
+				<div class="h1-light"><a href="table_tools.html">Table Tools</a></div>
+					<div class="left-box">
+					<ul>				
+						<li><a href="create_table.html">Create Table</a></li>
+						<li><a href="create_view.html">Create View</a></li>
+						<li><a href="create_index.html">Create Index</a></li>
+						<li><a href="create_sequence.html">Create Sequence</a></li>
+						<li><a href="edit_table.html">Edit Table</a></li>
+						<li><a href="describe_table.html">Describe Table</a></li>
+						<li><a href="alter_table.html">Alter Table</a></li>
+						<li><a href="alter_view.html">Alter View</a></li>
+						<li><a href="view_table.html">View Table</a></li>
+						<li><a href="column_lookup.html">Column Lookup</a></li>
+						<li><a href="table_lookup.html">Table Lookup</a></li>
+						<li><a href="query_builder.html">Query Builder</a></li>
+						<li><a href="drop_table.html">Drop Table</a></li>
+						<li><a href="drop_view.html">Drop View</a></li>
+						<li><a href="drop_index.html">Drop Index</a></li>
+						<li><a href="drop_sequence.html">Drop Sequence</a></li>
+					</ul>	
+					</div>
+				<div class="h1-light"><a href="procedure_tools.html">Stored Procedure / Function <br>
+				/ Trigger Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="view_procedure.html">View Procedure / Function / Trigger</a></li>
+						<li><a href="edit_procedure.html">Procedure Editor</a></li>
+						<li><a href="edit_function.html">Function Editor</a></li>
+						<li><a href="edit_trigger.html">Trigger Editor</a></li>
+						<li><a href="edit_package.html">Package Editor</a></li>
+						<li><a href="edit_package.html">Package Body Editor</a></li>
+						<li><a href="create_function.html">Create Function</a></li>
+						<li><a href="create_procedure.html">Create Procedure</a></li>
+						<li><a href="create_trigger.html">Create Trigger</a></li>
+						<li><a href="create_package.html">Create Package</a></li>
+						<li><a href="create_package_body.html">Create Package Body</a></li>
+						<li><a href="execute_procedure.html">Execute Procedure / Function</a></li>
+						<li><a href="drop_function.html">Drop Function</a></li>
+						<li><a href="drop_procedure.html">Drop Procedure</a></li>
+						<li><a href="drop_trigger.html">Drop Trigger</a></li>
+						<li><a href="oracle_drop_package.html">Drop Package</a></li>
+						<li><a href="oracle_drop_package_body.html">Drop Package Body</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="data_tools.html">Data Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="export.html">Export</a></li>
+						<li><a href="import.html">Import</a></li>
+						<li><a href="compare.html">Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="sql_tools.html">SQL Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="sql_execute.html">Execute</a></li>
+						<li><a href="sql_execute_fetch_all.html">Execute Fetch All</a></li>
+						<li><a href="sql_execute_all.html">Execute All</a></li>
+						<li><a href="sql_explain.html">Explain Plan</a></li>
+						<li><a href="sql_commit_rollback.html">Commit / Rollback</a></li>
+						<li><a href="sql_history.html">SQL History</a></li>
+						<li><a href="sql_formatter.html">SQL Formatter</a></li>
+						<li><a href="query_scheduler.html">Query Scheduler</a></li>
+						<li><a href="ddl_generator.html">Generate DDL</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="database_tools.html">Database Tools</a></div>
+					<div class="left-box">
+					<ul>
+						<li><a href="database_navigator.html">Database Navigator</a></li>
+						<li><a href="database_search.html">Database Search</a></li> 
+						<li><a href="database_object_search.html">Database Object Search</a></li> 
+						<li><a href="database_meta.html">Meta Data Viewer</a></li>
+						<li><a href="create_database.html">Create Database</a></li>
+						<li><a href="create_user.html">Create User</a></li>
+						<li><a href="drop_database.html">Drop Database</a></li>
+						<li><a href="drop_user.html">Drop User</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="command_line.html">Command Line Interface</a></div>
+				<div class="h1-light"><a href="builtin_database.html">Built-in Database</a></div>
+				<div class="h1-light"><a href="editor_tools.html">Editor Tools</a></div>
+					<div class="left-box">
+					<ul>
+					
+						<li><a href="sql_editor.html">SQL Editor</a></li>
+						<li><a href="sort_query_results.html">Sort Query Results</a></li>
+						<li><a href="filter_query_results.html">Filter Query Results</a></li>
+						<li><a href="search_query_results.html">Search Query Results</a></li>
+						<li><a href="query_navigator.html">Query Navigator</a></li>
+						<li><a href="auto_column_lookup.html">Auto Column Lookup</a></li>
+						<li><a href="auto_table_lookup.html">Auto Table Lookup</a></li>
+						<li><a href="parameterized_queries.html">Parameterized Queries</a></li>
+						<li><a href="function_lookup.html">Function Lookup</a></li>
+						<li><a href="keyahead.html">Key Ahead</a></li>
+						<li><a href="execute_shell.html">Execute Shell / Batch Scripts</a></li>
+						<li><a href="find_replace.html">Find / Replace</a></li>
+						<li><a href="find_replace_in_files.html">Find / Replace in Files</a></li>
+						<li><a href="replace_range.html">Replace Range</a></li>
+						<li><a href="match_bracket.html">Match Bracket</a></li>
+						<li><a href="match_tag.html">Match Tag</a></li>
+						<li><a href="file_compare.html">File Compare</a></li>
+					</ul>
+					</div>
+				<div class="h1-light"><a href="plugin_guide.html">Plugin Guide</a></div>
+				<div class="h1-light"><a href="preferences.html">Preferences</a></div>
+				<div class="h1-light"><a href="support_questions.html">Common Support Questions</a></div>
+			</div>	
+		
+		<!-- content-wrap ends here -->	
+		</div>
+					
+				<!--footer starts here-->
+		<div id="footer">
+			
+		<span id="footer-left">
+			&copy; 2011 <strong><a href="http://www.richardsonsoftware.com/">Richardson Software, LLC</a></strong> | 
+			 
+			
+			<a href="http://www.razorsql.com/">Home</a>
+			
+   		</span>
+				
+		</div>	
+<!-- wrap ends here -->
+</div>
+<!--stats--></body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Untitled</title>
+	
+	<!-- uncomment and enter name of the .css file in the href attribute to
+		include a style sheet
+	-->
+	
+	<!--
+	<link rel="stylesheet" type="text/css" href="">
+	-->
+	
+	<script>
+		function testFunction()
+		{
+			alert('test function');
+		}
+	</script>
+</head>
+
+<body>
+	<!--
+		enter a URL in the action attribute to have the form submit to that URL
+	-->
+	<form name="testForm" method="GET" action="">
+	
+		<!-- using the onclick handler to call a javascript function -->
+		<button onclick="testFunction()">Test Function</button>
+	
+		<br>
+	
+		<input type="submit" name="submit">
+	</form>
+	
+	<p>
+		Paragraph Text
+	</p>
+
+</body>
+
+</html>

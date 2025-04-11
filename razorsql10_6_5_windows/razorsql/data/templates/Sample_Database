@@ -1,0 +1,121 @@
+CREATE TABLE employee(
+	ssn VARCHAR(25) NOT NULL,
+	fname VARCHAR(25),
+	minit CHAR(1),
+	lname VARCHAR(50),
+	address VARCHAR(50),
+	sex CHAR(1),
+	salary INT,
+	superssn VARCHAR(50),
+	dno INT,
+	PRIMARY KEY (ssn)
+);
+
+
+insert into employee values ('123456789', 'John', 'B', 'Smith', 
+	'731 Fondren, Houston TX', 'M', 30000.00, '333445555', 5);
+insert into employee values ('333445555', 'Franklin', 'T', 'Wong', 
+	'638 Voss, Houston TX', 'M', 40000, '888665555', 5);
+insert into employee values ('999887777', 'Alicia', 'J', 'Zelaya',
+	'3321 Castle, Spring TX', 'F', 25000, '987654321', 4);
+insert into employee values ('987654321', 'Jennifer', 'S', 'Wallace',
+	'291 Berry, Bellaire, TX', 'F', 43000, '888666555', 4);
+insert into employee values ('666884444', 'Ramesh', 'K', 'Narayan',
+	'975 Fire Oak, Humble TX', 'M', 38000, '333445555', 5);
+insert into employee values ('453453453', 'Joyce', 'A', 'English',
+	'5631 Rice, Houston TX', 'F', 25000, '333445555', 5);
+insert into employee values ('987987987', 'Ahmad', 'V', 'Jabbar',
+	'980 Dallas, Houston TX', 'M', 25000, '987654321', 1);
+
+
+CREATE TABLE department (
+	dnumber    INT NOT NULL,
+	dname      VARCHAR(25) NOT NULL,
+	PRIMARY KEY (dnumber)
+);
+
+insert into department values (5, 'Research');
+insert into department values (4, 'Administration');
+insert into department values (1, 'Headquarters');
+
+
+ALTER TABLE employee
+       ADD FOREIGN KEY (dno)
+       REFERENCES department (dnumber);
+
+CREATE TABLE dept_locations (
+	dnumber INT NOT NULL,
+	dlocation VARCHAR(50) NOT NULL,
+	PRIMARY KEY (dnumber, dlocation)
+);
+
+ALTER TABLE dept_locations
+	ADD FOREIGN KEY (dnumber)
+	REFERENCES department (dnumber);
+
+CREATE TABLE project(
+	pnumber INT NOT NULL,
+	pname VARCHAR(50),
+	plocation VARCHAR(50),
+	dnum INT,
+	PRIMARY KEY (pnumber)
+);
+
+ALTER TABLE project 
+	ADD FOREIGN KEY (dnum)
+	REFERENCES department (dnumber);
+
+CREATE TABLE dependent(
+	essn VARCHAR(50) NOT NULL,
+	dependent_name VARCHAR(50) NOT NULL,
+	sex CHAR(1),
+	relationship VARCHAR(50),
+	PRIMARY KEY (essn, dependent_name)
+);
+
+CREATE TABLE works_on(
+	essn VARCHAR(50) NOT NULL,
+	pno INT NOT NULL,
+	hours INT,
+	PRIMARY KEY (essn, pno)
+);
+
+CREATE TABLE employee_trigger_test
+	(SSN VARCHAR(50) NOT NULL );
+
+
+insert into dept_locations values (1, 'Houston');
+insert into dept_locations values (4, 'Stafford');
+insert into dept_locations values (5, 'Bellaire');
+insert into dept_locations values (5, 'Sugarland');
+
+insert into project values (1, 'ProductX', 'Bellaire', 5);
+insert into project values (2, 'ProductY', 'Sugarland', 5);
+insert into project values (3, 'ProductZ', 'Houston', 5);
+insert into project values (10, 'Computerization', 'Stafford', 4);
+insert into project values (20, 'Reorganization', 'Houston', 1);
+insert into project values (30, 'Newbenefits', 'Stafford', 4);
+
+insert into works_on values ('123456789', 1, 32);
+insert into works_on values ('123456789', 2, 7);
+insert into works_on values ('666884444', 3, 40);
+insert into works_on values ('453453453', 1, 20);
+insert into works_on values ('453453453', 2, 20);
+insert into works_on values ('333445555', 2, 10);
+insert into works_on values ('333445555', 3, 10);
+insert into works_on values ('333445555', 10, 10);
+insert into works_on values ('333445555', 20, 10);
+insert into works_on values ('999887777', 30, 30);
+insert into works_on values ('999887777', 10, 10);
+insert into works_on values ('987987987', 10, 35);
+insert into works_on values ('987987987', 30, 5);
+insert into works_on values ('987654321', 30, 20);
+insert into works_on values ('987654321', 20, 15);
+
+insert into dependent values ('333445555', 'Alice', 'F', 'DAUGHTER');
+insert into dependent values ('333445555', 'Theodore', 'M', 'SON');
+insert into dependent values ('333445555', 'Joy', 'F', 'SPOUSE');
+insert into dependent values ('987654321', 'Abner', 'M', 'SPOUSE');
+insert into dependent values ('123456789', 'Michael', 'M', 'SON');
+insert into dependent values ('123456789', 'Alice', 'F', 'DAUGHTER');
+insert into dependent values ('123456789', 'Elizabeth', 'F', 'SPOUSE');
