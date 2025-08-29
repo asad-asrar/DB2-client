@@ -1,1 +1,0 @@
-CREATE [UNIQUE] INDEX <index name> ON <table name> (<column list>)

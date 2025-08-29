@@ -1,3 +1,0 @@
-REVOKE {ALL [PRIVILEGES]
-	| <privilege> .,..} [ON <table name>]
-	FROM { PUBLIC | <authorization id> .,..}

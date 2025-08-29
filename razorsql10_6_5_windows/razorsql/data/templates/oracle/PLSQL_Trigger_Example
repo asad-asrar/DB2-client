@@ -1,8 +1,0 @@
-CREATE OR REPLACE TRIGGER employee_trigger
-	AFTER INSERT ON EMPLOYEE
-	REFERENCING NEW AS newrow
-	FOR EACH ROW
-	WHEN (newrow.ssn is not null)
-	BEGIN
-		INSERT INTO EMPLOYEE_TRIGGER_TEST VALUES(:newrow.ssn);
-	END employee_trigger;

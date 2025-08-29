@@ -1,3 +1,0 @@
-BEGIN
-RAISE_SALARY(4, 2);
-END;

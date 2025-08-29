@@ -1,1 +1,0 @@
-execute dbo.update_manager_ssn 4, '333445555'

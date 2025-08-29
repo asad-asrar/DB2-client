@@ -1,1 +1,0 @@
-CREATE VIEW <table name> as <query> [WITH CHECK OPTION]
