@@ -1,0 +1,99 @@
+const jose = require('jose');
+const crypto = require('crypto');
+
+/**
+ * RAKBANK Cryptographic Algorithms Configuration
+ */
+const ALGORITHMS = {
+    JWS_SIGNATURE: 'RS256',
+    JWE_KEY_ENCRYPTION: 'RSA-OAEP-256',
+    JWE_CONTENT_ENCRYPTION: 'A256CBC-HS512'
+};
+
+/**
+ * INBOUND FLOW: Decrypt a JWE payload and Verify the JWS signature.
+ * (Used when receiving a response from RAKBANK)
+ * * @param {Object} encryptedPayloadJson - The JSON Serialized JWE from RAKBANK.
+ * @param {string} clientPrivateKeyPem - Your Client Private Key (for Decryption).
+ * @param {string} rakbankPublicKeyPem - RAKBANK's Public Key (for Verification).
+ * @returns {string} The verified, plain-text JSON payload.
+ */
+async function decryptAndVerify(encryptedPayloadJson, clientPrivateKeyPem, rakbankPublicKeyPem) {
+    try {
+        // 1. Import Keys
+        const clientPrivateKey = await jose.importPKCS8(clientPrivateKeyPem, ALGORITHMS.JWE_KEY_ENCRYPTION);
+        const rakbankPublicKey = await jose.importSPKI(rakbankPublicKeyPem, ALGORITHMS.JWS_SIGNATURE);
+
+        console.log("Starting JWE Decryption...");
+        
+        // 2. Decrypt the JWE (JSON Serialization)
+        const { plaintext } = await jose.flattenedDecrypt(encryptedPayloadJson, clientPrivateKey);
+        
+        // The decrypted plaintext is the JWS JSON string. Parse it to an object.
+        const jwsPayloadJson = JSON.parse(new TextDecoder().decode(plaintext));
+        
+        console.log("Starting JWS Verification...");
+
+        // 3. Verify the JWS Signature
+        const { payload } = await jose.flattenedVerify(jwsPayloadJson, rakbankPublicKey);
+        
+        // 4. Return the final, verified JSON string
+        return new TextDecoder().decode(payload);
+
+    } catch (error) {
+        console.error("Decryption/Verification Failed:", error.message);
+        throw error;
+    }
+}
+
+/**
+ * OUTBOUND FLOW: Sign a payload (JWS) and Encrypt it (JWE).
+ * (Used when sending a request to RAKBANK)
+ * * @param {Object|string} rawPayload - The plain JSON request payload.
+ * @param {string} clientPrivateKeyPem - Your Client Private Key (for Signing).
+ * @param {string} rakbankPublicKeyPem - RAKBANK's Public Key (for Encryption).
+ * @returns {Object} The final JSON Serialized JWE object to send in the HTTP body.
+ */
+async function signAndEncrypt(rawPayload, clientPrivateKeyPem, rakbankPublicKeyPem) {
+    try {
+        // 1. Import Keys
+        const clientPrivateKey = await jose.importPKCS8(clientPrivateKeyPem, ALGORITHMS.JWS_SIGNATURE);
+        const rakbankPublicKey = await jose.importSPKI(rakbankPublicKeyPem, ALGORITHMS.JWE_KEY_ENCRYPTION);
+
+        const payloadBuffer = new TextEncoder().encode(
+            typeof rawPayload === 'string' ? rawPayload : JSON.stringify(rawPayload)
+        );
+
+        console.log("Starting JWS Signing...");
+
+        // 2. Create the JWS (JSON Serialization)
+        const jws = await new jose.FlattenedSign(payloadBuffer)
+            .setProtectedHeader({ alg: ALGORITHMS.JWS_SIGNATURE })
+            .sign(clientPrivateKey);
+
+        console.log("Starting JWE Encryption...");
+
+        // 3. Create the JWE from the JWS (JSON Serialization)
+        const jwsString = JSON.stringify(jws);
+        const jwsBuffer = new TextEncoder().encode(jwsString);
+
+        const jwe = await new jose.FlattenedEncrypt(jwsBuffer)
+            .setProtectedHeader({ 
+                alg: ALGORITHMS.JWE_KEY_ENCRYPTION, 
+                enc: ALGORITHMS.JWE_CONTENT_ENCRYPTION 
+            })
+            .encrypt(rakbankPublicKey);
+
+        // 4. Return the final JWE object ready for transmission
+        return jwe;
+
+    } catch (error) {
+        console.error("Signing/Encryption Failed:", error.message);
+        throw error;
+    }
+}
+
+module.exports = {
+    decryptAndVerify,
+    signAndEncrypt
+};
